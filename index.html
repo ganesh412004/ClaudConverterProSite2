@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClaudConverter Pro - All-in-One File Conversion Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Claud<span>Converter</span> Pro</a>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#converters">Converters</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#" class="btn btn-outline">Premium</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Convert Anything, Anytime</h1>
+            <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
+            <a href="#converters" class="btn">Start Converting Now</a>
+        </div>
+    </section>
+
+    <section id="converters" class="converter-types">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Conversion Tools</h2>
+                <p>Choose from our wide range of conversion tools to transform your files into the format you need.</p>
+            </div>
+            <div class="converter-grid">
+                <!-- Video Converters -->
+                <div class="converter-card" onclick="showConverter('video')">
+                    <div class="converter-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Converter</h3>
+                    <p>Convert between MP4, MOV, AVI, and more. Extract audio from videos.</p>
+                </div>
+
+                <!-- Audio Converters -->
+                <div class="converter-card" onclick="showConverter('audio')">
+                    <div class="converter-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Audio Converter</h3>
+                    <p>Convert MP3, WAV, AAC, and other audio formats with ease.</p>
+                </div>
+
+                <!-- Image Converters -->
+                <div class="converter-card" onclick="showConverter('image')">
+                    <div class="converter-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Image Converter</h3>
+                    <p>Convert JPG, PNG, HEIC, and more. Create PDFs from images.</p>
+                </div>
+
+                <!-- Document Converters -->
+                <div class="converter-card" onclick="showConverter('document')">
+                    <div class="converter-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Document Converter</h3>
+                    <p>Convert PDF to Word, Excel to PDF, EPUB to MOBI, and more.</p>
+                </div>
+
+                <!-- Archive Converters -->
+                <div class="converter-card" onclick="showConverter('archive')">
+                    <div class="converter-icon">
+                        <i class="fas fa-file-archive"></i>
+                    </div>
+                    <h3>Archive Converter</h3>
+                    <p>Convert between ZIP, RAR, 7Z and other archive formats.</p>
+                </div>
+
+                <!-- Time Zone Converters -->
+                <div class="converter-card" onclick="showConverter('timezone')">
+                    <div class="converter-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Zone Converter</h3>
+                    <p>Convert between different time zones instantly.</p>
+                </div>
+
+                <!-- Unit Converters -->
+                <div class="converter-card" onclick="showConverter('unit')">
+                    <div class="converter-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Unit Converter</h3>
+                    <p>Convert between lbs/kg, feet/meters, and other units.</p>
+                </div>
+
+                <!-- Bonus Tools -->
+                <div class="converter-card" onclick="showConverter('bonus')">
+                    <div class="converter-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Bonus Tools</h3>
+                    <p>Image resizer, collage maker, color picker, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="converter-interface" class="converter-interface" style="display: none;">
+        <div class="container">
+            <div class="converter-box">
+                <h2 id="converter-title">Video Converter</h2>
+                <div class="drop-area" id="dropArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag and drop an image or browse to upload.</h3>
+                    <h4>Upload your photo</h4>
+                    <p>File must be PNG or WebP and up to 40MB</p>
+                    <div class="upload-options">
+                        <div class="option-item">
+                            <input type="checkbox" id="freeUse" checked disabled>
+                            <label for="freeUse">Free to use <span class="free-badge">No credit card required</span></label>
+                        </div>
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" accept=".png,.webp" multiple>
+                    <button class="btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
+                </div>
+                <div class="file-list" id="fileList"></div>
+                <div class="conversion-options">
+                    <div class="option-group">
+                        <label for="outputFormat">Output Format</label>
+                        <select id="outputFormat">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="option-group" id="qualityGroup" style="display: none;">
+                        <label for="quality">Quality</label>
+                        <select id="quality">
+                            <option value="high">High</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <button class="btn convert-btn" id="convertBtn">Convert Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <!-- Features section content remains the same as original -->
+    </section>
+
+    <footer>
+        <!-- Footer content remains the same as original -->
+    </footer>
+
+    <!-- Conversion Modal -->
+    <div class="modal" id="conversionModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Converting Your Files</h2>
+            <p id="conversionStatus">Preparing files for conversion...</p>
+            <div class="progress-bar">
+                <div class="progress" id="conversionProgress"></div>
+            </div>
+            <button class="btn download-btn" id="downloadBtn" style="display: none;">Download Converted Files</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
