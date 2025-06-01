@@ -3,920 +3,1658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClaudConverter Pro - All-in-One File Conversion Suite</title>
+    <meta name="description" content="ClaudConverter Pro - Convert any file format quickly and securely. Video, audio, image, document conversions made easy.">
+    <title>ClaudConverter Pro – Ultimate File Conversion Suite | Fast & Secure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3f37c9;
-            --accent-color: #4895ef;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --success-color: #4cc9f0;
-            --warning-color: #f72585;
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --dark-gray: #343a40;
+            --medium-gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --warning-dark: #e01a75;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.2s ease-in-out;
             --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: #f5f7ff;
-            color: var(--dark-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
+        
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
-
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Header */
         header {
-            background-color: white;
-            box-shadow: var(--box-shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
         }
-
-        .header-content {
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            height: 80px;
         }
-
+        
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        nav ul {
             display: flex;
-            list-style: none;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
         }
-
-        nav ul li {
-            margin-left: 20px;
+        
+        .logo-icon {
+            font-size: 1.75rem;
         }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-color);
+        
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-link {
             font-weight: 500;
+            color: var(--dark-gray);
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
             transition: var(--transition);
         }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 500;
+        
+        .cta-button {
+            background-color: var(--warning);
+            color: var(--white);
+            padding: 0.625rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
             transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--warning-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .mobile-menu-button {
+            display: none;
+            background: none;
             border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+            margin-bottom: 3rem;
+        }
+        
+        .file-upload-container {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .file-drop-area {
+            border: 2px dashed var(--medium-gray);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.8);
             cursor: pointer;
         }
-
-        .btn:hover {
-            background-color: var(--secondary-color);
+        
+        .file-drop-area:hover {
+            border-color: var(--primary);
+        }
+        
+        .file-drop-area.highlight {
+            border-color: var(--primary);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .upload-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-text {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .browse-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .browse-button:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--medium-gray);
         }
-
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+        
+        .trust-icon {
+            color: var(--primary);
         }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--dark-color);
+        
+        /* Features Section */
+        .section {
+            padding: 5rem 0;
         }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #555;
+        
+        .section-light {
+            background-color: var(--white);
         }
-
-        .converter-types {
-            padding: 60px 0;
-        }
-
+        
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            max-width: 700px;
+            margin: 0 auto 3rem;
         }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--dark-color);
-            margin-bottom: 10px;
+        
+        .section-heading {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
         }
-
-        .section-title p {
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+        
+        .section-description {
+            color: var(--medium-gray);
         }
-
-        .converter-grid {
+        
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
-
-        .converter-card {
-            background-color: white;
+        
+        .feature-card {
+            background-color: var(--white);
             border-radius: var(--border-radius);
-            padding: 25px;
-            text-align: center;
-            box-shadow: var(--box-shadow);
+            padding: 2rem;
             transition: var(--transition);
-            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--light-gray);
         }
-
-        .converter-card:hover {
+        
+        .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
-
-        .converter-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
-
-        .converter-card h3 {
-            margin-bottom: 10px;
-            color: var(--dark-color);
+        
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
         }
-
-        .converter-card p {
-            color: #666;
-            font-size: 14px;
+        
+        .feature-description {
+            color: var(--medium-gray);
         }
-
-        .converter-interface {
-            padding: 60px 0;
-            background-color: white;
+        
+        /* Tools Section */
+        .tools-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
-
-        .converter-box {
-            background-color: var(--light-color);
+        
+        .tool-tab {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .tool-tab.active, .tool-tab:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tool-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background-color: var(--white);
             border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+        
+        .tool-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .tool-name {
+            font-weight: 600;
+        }
+        
+        /* How It Works */
+        .steps-container {
+            position: relative;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step-description {
+            color: var(--medium-gray);
+        }
+        
+        .steps-connector {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: calc(100% - 120px);
+            height: 2px;
+            background-color: var(--light-gray);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--light-gray);
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .pricing-card.recommended {
+            border: 2px solid var(--primary);
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.25rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .pricing-period {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--medium-gray);
+        }
+        
+        .pricing-features {
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--medium-gray);
+        }
+        
+        .pricing-feature:first-child {
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .pricing-feature-icon {
+            color: var(--primary);
+        }
+        
+        .pricing-button {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .pricing-button.primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .pricing-button.primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .pricing-button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .pricing-button.secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Testimonials */
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+        
+        .testimonial-content {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+        }
+        
+        .testimonial-content::before {
+            top: -1.5rem;
+            left: -1rem;
+        }
+        
+        .testimonial-content::after {
+            bottom: -3rem;
+            right: -1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-role {
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        /* FAQ */
+        .faq-container {
             max-width: 800px;
             margin: 0 auto;
         }
-
-        .drop-area {
-            border: 2px dashed #ccc;
+        
+        .faq-item {
+            background-color: var(--white);
             border-radius: var(--border-radius);
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 20px;
-            transition: var(--transition);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
         }
-
-        .drop-area.active {
-            border-color: var(--primary-color);
-            background-color: rgba(67, 97, 238, 0.05);
-        }
-
-        .drop-area i {
-            font-size: 48px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .drop-area p {
-            margin-bottom: 15px;
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .file-list {
-            margin-top: 20px;
-        }
-
-        .file-item {
+        
+        .faq-question {
+            padding: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            background-color: white;
-            border-radius: var(--border-radius);
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .file-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .file-icon {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-
-        .file-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .file-actions button {
-            background: none;
-            border: none;
             cursor: pointer;
-            color: #666;
+            font-weight: 600;
             transition: var(--transition);
         }
-
-        .file-actions button:hover {
-            color: var(--primary-color);
+        
+        .faq-question:hover {
+            background-color: var(--light);
         }
-
-        .conversion-options {
-            margin-top: 30px;
+        
+        .faq-icon {
+            transition: var(--transition);
         }
-
-        .option-group {
-            margin-bottom: 20px;
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
         }
-
-        .option-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
         }
-
-        .option-group select, .option-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 16px;
+        
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
         }
-
-        .convert-btn {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin-top: 20px;
+        
+        .faq-answer-content {
+            color: var(--medium-gray);
         }
-
-        .features {
-            padding: 60px 0;
-            background-color: #f5f7ff;
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
         }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+        
+        .cta-title {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
         }
-
-        .feature-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
+        
+        .cta-description {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.25rem;
+            opacity: 0.9;
         }
-
-        .feature-icon {
-            font-size: 30px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-
-        .feature-card h3 {
-            margin-bottom: 15px;
-            color: var(--dark-color);
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
         }
-
-        .feature-card p {
-            color: #666;
+        
+        .cta-button.secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
         }
-
+        
+        /* Footer */
         footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
         }
-
-        .footer-content {
+        
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
         }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent-color);
+        
+        .footer-logo-icon {
+            font-size: 1.75rem;
         }
-
-        .footer-column ul {
-            list-style: none;
+        
+        .footer-description {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
         }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
+        
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 0.75rem;
         }
-
-        .social-links a {
-            color: white;
-            font-size: 20px;
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: var(--transition);
         }
-
-        .social-links a:hover {
-            color: var(--accent-color);
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
         }
-
-        .copyright {
+        
+        .footer-column-title {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .footer-column-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: var(--medium-gray);
+            transition: var(--transition);
+        }
+        
+        .footer-link a:hover {
+            color: var(--white);
+            padding-left: 0.25rem;
+        }
+        
+        .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 14px;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--medium-gray);
+            font-size: 0.875rem;
         }
-
-        /* Responsive styles */
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-desktop {
+                display: none;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .steps-connector {
+                display: none;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
+            .hero {
+                padding: 4rem 0;
             }
-
-            nav ul {
-                margin-top: 15px;
+            
+            .hero-title {
+                font-size: 2rem;
             }
-
-            nav ul li {
-                margin: 0 10px;
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
             }
-
-            .hero h1 {
-                font-size: 36px;
+            
+            .section {
+                padding: 4rem 0;
             }
-
-            .hero p {
-                font-size: 18px;
+            
+            .section-heading {
+                font-size: 1.75rem;
+            }
+            
+            .file-drop-area {
+                padding: 2rem 1rem;
+            }
+            
+            .testimonial-content {
+                font-size: 1.125rem;
+            }
+            
+            .cta-title {
+                font-size: 1.75rem;
+            }
+            
+            .cta-description {
+                font-size: 1.125rem;
             }
         }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
+        
+        @media (max-width: 576px) {
+            .header-container {
+                height: 70px;
             }
-
-            .hero p {
-                font-size: 16px;
+            
+            .hero {
+                padding: 3rem 0;
             }
-
-            .section-title h2 {
-                font-size: 24px;
+            
+            .hero-title {
+                font-size: 1.75rem;
             }
-
-            .converter-grid {
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-heading {
+                font-size: 1.5rem;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .pricing-cards {
                 grid-template-columns: 1fr;
             }
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #eee;
-            border-radius: 5px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: var(--primary-color);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .download-btn {
-            display: none;
-            margin-top: 20px;
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-button, .cta-button.secondary {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <a href="#" class="logo">Claud<span>Converter</span> Pro</a>
-            <nav>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#converters">Converters</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#" class="btn btn-outline">Premium</a></li>
-                </ul>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-exchange-alt logo-icon"></i>
+                <span>ClaudConverter Pro</span>
+            </a>
+            
+            <nav class="nav-desktop">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#" class="cta-button">Get Started</a>
             </nav>
+            
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Convert Anything, Anytime</h1>
-            <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
-            <a href="#converters" class="btn">Start Converting Now</a>
+            <div class="hero-content">
+                <h1 class="hero-title">Your Ultimate File Conversion Suite</h1>
+                <p class="hero-subtitle">Convert Any File, Any Format – Fast, Secure & Effortless!</p>
+                
+                <div class="file-upload-container">
+                    <div class="file-drop-area" id="fileDropArea" role="button" tabindex="0" aria-label="File upload area">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3 class="upload-title">Drag & Drop Your Files Here</h3>
+                        <p class="upload-text">Or click the button below to browse your files</p>
+                        <button class="browse-button">Browse Files</button>
+                        <p class="sr-only">Supports: MP4, MOV, AVI, MP3, WAV, JPG, PNG, PDF, DOCX and 100+ more formats</p>
+                    </div>
+                </div>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt trust-icon"></i>
+                        <span>100% Secure</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-bolt trust-icon"></i>
+                        <span>Lightning Fast</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-lock trust-icon"></i>
+                        <span>Files Auto-Deleted</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="converters" class="converter-types">
+    <!-- Features Section -->
+    <section class="section section-light" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Our Conversion Tools</h2>
-                <p>Choose from our wide range of conversion tools to transform your files into the format you need.</p>
+                <h2 class="section-heading">✨ Key Features at a Glance</h2>
+                <p class="section-description">ClaudConverter Pro is a cutting-edge web application designed to simplify all your file conversion needs with a sleek, user-friendly interface.</p>
             </div>
-            <div class="converter-grid">
-                <!-- Video Converters -->
-                <div class="converter-card" onclick="showConverter('video')">
-                    <div class="converter-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Video Converter</h3>
-                    <p>Convert between MP4, MOV, AVI, and more. Extract audio from videos.</p>
-                </div>
-
-                <!-- Audio Converters -->
-                <div class="converter-card" onclick="showConverter('audio')">
-                    <div class="converter-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3>Audio Converter</h3>
-                    <p>Convert MP3, WAV, AAC, and other audio formats with ease.</p>
-                </div>
-
-                <!-- Image Converters -->
-                <div class="converter-card" onclick="showConverter('image')">
-                    <div class="converter-icon">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <h3>Image Converter</h3>
-                    <p>Convert JPG, PNG, HEIC, and more. Create PDFs from images.</p>
-                </div>
-
-                <!-- Document Converters -->
-                <div class="converter-card" onclick="showConverter('document')">
-                    <div class="converter-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Document Converter</h3>
-                    <p>Convert PDF to Word, Excel to PDF, EPUB to MOBI, and more.</p>
-                </div>
-
-                <!-- Archive Converters -->
-                <div class="converter-card" onclick="showConverter('archive')">
-                    <div class="converter-icon">
-                        <i class="fas fa-file-archive"></i>
-                    </div>
-                    <h3>Archive Converter</h3>
-                    <p>Convert between ZIP, RAR, 7Z and other archive formats.</p>
-                </div>
-
-                <!-- Time Zone Converters -->
-                <div class="converter-card" onclick="showConverter('timezone')">
-                    <div class="converter-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time Zone Converter</h3>
-                    <p>Convert between different time zones instantly.</p>
-                </div>
-
-                <!-- Unit Converters -->
-                <div class="converter-card" onclick="showConverter('unit')">
-                    <div class="converter-icon">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                    <h3>Unit Converter</h3>
-                    <p>Convert between lbs/kg, feet/meters, and other units.</p>
-                </div>
-
-                <!-- Bonus Tools -->
-                <div class="converter-card" onclick="showConverter('bonus')">
-                    <div class="converter-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3>Bonus Tools</h3>
-                    <p>Image resizer, collage maker, color picker, and more.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="converter-interface" class="converter-interface" style="display: none;">
-        <div class="container">
-            <div class="converter-box">
-                <h2 id="converter-title">Video Converter</h2>
-                <div class="drop-area" id="dropArea">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>Drag & drop your files here or click to browse</p>
-                    <input type="file" id="fileInput" class="file-input" multiple>
-                    <button class="btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
-                </div>
-                <div class="file-list" id="fileList"></div>
-                <div class="conversion-options">
-                    <div class="option-group">
-                        <label for="outputFormat">Output Format</label>
-                        <select id="outputFormat">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                    </div>
-                    <div class="option-group" id="qualityGroup" style="display: none;">
-                        <label for="quality">Quality</label>
-                        <select id="quality">
-                            <option value="high">High</option>
-                            <option value="medium" selected>Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                    </div>
-                    <button class="btn convert-btn" id="convertBtn">Convert Now</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose ClaudConverter Pro?</h2>
-                <p>Discover the features that make our tool stand out from the competition.</p>
-            </div>
+            
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>100% Secure</h3>
-                    <p>Your files are protected with advanced encryption and automatically deleted after conversion.</p>
+                    <i class="fas fa-video feature-icon"></i>
+                    <h3 class="feature-title">Video Converter</h3>
+                    <p class="feature-description">Convert between all popular video formats with high quality output and customizable settings.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Fast Conversions</h3>
-                    <p>Our cloud-powered servers ensure your files are converted quickly, no matter the size.</p>
+                    <i class="fas fa-music feature-icon"></i>
+                    <h3 class="feature-title">Audio Converter</h3>
+                    <p class="feature-description">Extract audio from videos or convert between audio formats while preserving quality.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Works Everywhere</h3>
-                    <p>Access ClaudConverter Pro from any device - desktop, tablet, or mobile.</p>
+                    <i class="fas fa-image feature-icon"></i>
+                    <h3 class="feature-title">Image Converter</h3>
+                    <p class="feature-description">Convert, resize, compress, or change format of your images with ease.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>All-in-One Solution</h3>
-                    <p>No need for multiple tools - we handle all your conversion needs in one place.</p>
+                    <i class="fas fa-file-alt feature-icon"></i>
+                    <h3 class="feature-title">Document Tools</h3>
+                    <p class="feature-description">Convert between PDF, Word, Excel, PowerPoint and other document formats.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Cloud Powered</h3>
-                    <p>No software installation required. Convert files directly from your browser.</p>
+                    <i class="fas fa-ruler-combined feature-icon"></i>
+                    <h3 class="feature-title">Unit Conversion</h3>
+                    <p class="feature-description">Instant conversion between different measurement units and time zones.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Batch Processing</h3>
-                    <p>Convert multiple files at once to save time and effort.</p>
+                    <i class="fas fa-tools feature-icon"></i>
+                    <h3 class="feature-title">Bonus Tools</h3>
+                    <p class="feature-description">Collage maker, image resizer, color picker and other handy utilities included.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Tools Section -->
+    <section class="section" id="tools">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ClaudConverter Pro</h3>
-                    <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <div class="section-title">
+                <h2 class="section-heading">🔧 All-Inclusive Conversion Tools</h2>
+                <p class="section-description">Whether you're working with videos, audio, images, documents, or units, our powerful tool delivers high-quality conversions in seconds.</p>
+            </div>
+            
+            <div class="tools-tabs">
+                <button class="tool-tab active" data-category="video">Video Tools</button>
+                <button class="tool-tab" data-category="audio">Audio Tools</button>
+                <button class="tool-tab" data-category="image">Image Tools</button>
+                <button class="tool-tab" data-category="document">Document Tools</button>
+                <button class="tool-tab" data-category="other">Other Tools</button>
+            </div>
+            
+            <div class="category-content active" id="video-content">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-file-video tool-icon"></i>
+                        <span class="tool-name">MP4 Converter</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-film tool-icon"></i>
+                        <span class="tool-name">Video to GIF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fab fa-apple tool-icon"></i>
+                        <span class="tool-name">MOV to MP4</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-headphones tool-icon"></i>
+                        <span class="tool-name">Video to MP3</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-compress tool-icon"></i>
+                        <span class="tool-name">Video Compressor</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-crop tool-icon"></i>
+                        <span class="tool-name">Video Cropper</span>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#converters">Converters</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to get updates and special offers.</p>
-                    <form>
-                        <input type="email" placeholder="Your email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
+            </div>
+            
+            <div class="category-content" id="audio-content">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-file-audio tool-icon"></i>
+                        <span class="tool-name">MP3 Converter</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-video tool-icon"></i>
+                        <span class="tool-name">MP4 to MP3</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-volume-up tool-icon"></i>
+                        <span class="tool-name">Audio Compressor</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-cut tool-icon"></i>
+                        <span class="tool-name">Audio Trimmer</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-audio tool-icon"></i>
+                        <span class="tool-name">WAV to MP3</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fab fa-itunes-note tool-icon"></i>
+                        <span class="tool-name">M4A to MP3</span>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
+            
+            <div class="category-content" id="image-content">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-file-image tool-icon"></i>
+                        <span class="tool-name">JPG ↔ PDF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-mobile tool-icon"></i>
+                        <span class="tool-name">HEIC to JPG</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-images tool-icon"></i>
+                        <span class="tool-name">Image to PDF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-image tool-icon"></i>
+                        <span class="tool-name">PNG to JPG</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-compress tool-icon"></i>
+                        <span class="tool-name">Image Compressor</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-crop tool-icon"></i>
+                        <span class="tool-name">Image Cropper</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-content" id="document-content">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-file-pdf tool-icon"></i>
+                        <span class="tool-name">PDF to Word</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-book-open tool-icon"></i>
+                        <span class="tool-name">EPUB to PDF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-word tool-icon"></i>
+                        <span class="tool-name">Word to PDF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-excel tool-icon"></i>
+                        <span class="tool-name">Excel to PDF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-powerpoint tool-icon"></i>
+                        <span class="tool-name">PPT to PDF</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-alt tool-icon"></i>
+                        <span class="tool-name">PDF Merger</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-content" id="other-content">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-clock tool-icon"></i>
+                        <span class="tool-name">Time Zone Converter</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-weight tool-icon"></i>
+                        <span class="tool-name">Unit Converter</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-palette tool-icon"></i>
+                        <span class="tool-name">Color Picker</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-th-large tool-icon"></i>
+                        <span class="tool-name">Collage Maker</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-qrcode tool-icon"></i>
+                        <span class="tool-name">QR Code Generator</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-file-archive tool-icon"></i>
+                        <span class="tool-name">File Compressor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-light" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="section-heading">⚡ How ClaudConverter Pro Works</h2>
+                <p class="section-description">Convert your files in just three simple steps – no software installation required!</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="steps-connector"></div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Upload Your File</h3>
+                        <p class="step-description">Drag & drop your file or click to browse. We support all major formats.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Choose Output Format</h3>
+                        <p class="step-description">Select your desired output format from our extensive list.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Download & Enjoy</h3>
+                        <p class="step-description">Get your converted file instantly. Your files are automatically deleted after processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="section-heading">💰 Simple, Transparent Pricing</h2>
+                <p class="section-description">Choose the plan that works best for you. No hidden fees, cancel anytime.</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Free</h3>
+                    <div class="pricing-price">$0 <span class="pricing-period">/ forever</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>10 conversions per day</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Basic file formats</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>File size limit: 50MB</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Standard conversion speed</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Watermark on videos</span>
+                        </li>
+                    </ul>
+                    <button class="pricing-button secondary">Get Started</button>
+                </div>
+                
+                <div class="pricing-card recommended">
+                    <div class="recommended-badge">Most Popular</div>
+                    <h3 class="pricing-title">Pro</h3>
+                    <div class="pricing-price">$9 <span class="pricing-period">/ month</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Unlimited conversions</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>All file formats</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>File size limit: 2GB</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Priority conversion speed</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>No watermarks</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Batch processing</span>
+                        </li>
+                    </ul>
+                    <button class="pricing-button primary">Get Pro Now</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Business</h3>
+                    <div class="pricing-price">$29 <span class="pricing-period">/ month</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Everything in Pro</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>File size limit: 10GB</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Team collaboration</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>API access</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check pricing-feature-icon"></i>
+                            <span>Custom branding</span>
+                        </li>
+                    </ul>
+                    <button class="pricing-button secondary">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="section-heading">❤️ What Our Users Say</h2>
+                <p class="section-description">Don't just take our word for it. Here's what our users have to say about ClaudConverter Pro.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        I've tried many file converters before, but ClaudConverter Pro is by far the fastest and most reliable. The batch processing feature saves me hours every week!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Sarah Johnson</h4>
+                            <p class="author-role">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-dot active" aria-label="Show testimonial 1"></button>
+                    <button class="slider-dot" aria-label="Show testimonial 2"></button>
+                    <button class="slider-dot" aria-label="Show testimonial 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="section-heading">❓ Frequently Asked Questions</h2>
+                <p class="section-description">Find quick answers to common questions about ClaudConverter Pro.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is ClaudConverter Pro really free to use?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! We offer a free tier that allows you to perform up to 10 conversions per day with basic features. For unlimited conversions and advanced features, you can upgrade to our Pro or Business plans.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How secure is my data with ClaudConverter Pro?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Your privacy and security are our top priorities. All files are encrypted during transfer and processing. Converted files are automatically deleted from our servers after 24 hours, and we never store or share your data with third parties.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What file formats do you support?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We support over 100 file formats across videos, audio, images, documents, and more. Some popular formats include MP4, MOV, AVI, MP3, WAV, JPG, PNG, PDF, DOCX, XLSX, PPTX, and EPUB. For a complete list, check our supported formats page.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I convert multiple files at once?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Our Pro and Business plans include batch processing, allowing you to convert multiple files simultaneously. This feature is perfect for professionals who need to convert large numbers of files regularly.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer API access?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>API access is available with our Business plan. Our comprehensive API documentation makes it easy to integrate file conversion capabilities directly into your applications or workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Experience Effortless File Conversion?</h2>
+            <p class="cta-description">Join over 1 million users who trust ClaudConverter Pro for all their file conversion needs. No credit card required to get started.</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">Start Converting Now</a>
+                <a href="#" class="cta-button secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-exchange-alt footer-logo-icon"></i>
+                        <span>ClaudConverter Pro</span>
+                    </a>
+                    <p class="footer-description">Your ultimate file conversion suite. Fast, secure, and effortless conversion for all your files.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-column-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Home</a></li>
+                        <li class="footer-link"><a href="#features">Features</a></li>
+                        <li class="footer-link"><a href="#how-it-works">How It Works</a></li>
+                        <li class="footer-link"><a href="#pricing">Pricing</a></li>
+                        <li class="footer-link"><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-column-title">Tools</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Video Converter</a></li>
+                        <li class="footer-link"><a href="#">Audio Converter</a></li>
+                        <li class="footer-link"><a href="#">Image Converter</a></li>
+                        <li class="footer-link"><a href="#">Document Converter</a></li>
+                        <li class="footer-link"><a href="#">Unit Converter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-column-title">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
                 <p>&copy; 2023 ClaudConverter Pro. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Conversion Modal -->
-    <div class="modal" id="conversionModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Converting Your Files</h2>
-            <p id="conversionStatus">Preparing files for conversion...</p>
-            <div class="progress-bar">
-                <div class="progress" id="conversionProgress"></div>
-            </div>
-            <button class="btn download-btn" id="downloadBtn" style="display: none;">Download Converted Files</button>
-        </div>
-    </div>
-
     <script>
-        // Converter data
-        const converters = {
-            video: {
-                title: "Video Converter",
-                formats: [
-                    {name: "MP4", value: "mp4", description: "MP4 Video File"},
-                    {name: "MOV to MP4", value: "mov-to-mp4", description: "Convert Apple MOV to MP4"},
-                    {name: "AVI to MP4", value: "avi-to-mp4", description: "Convert AVI to MP4"},
-                    {name: "Video to GIF", value: "video-to-gif", description: "Create GIF from video"},
-                    {name: "Video to MP3", value: "video-to-mp3", description: "Extract audio from video"},
-                    {name: "WEBM to MP4", value: "webm-to-mp4", description: "Convert WEBM to MP4"}
-                ],
-                hasQuality: true
-            },
-            audio: {
-                title: "Audio Converter",
-                formats: [
-                    {name: "MP3", value: "mp3", description: "MP3 Audio File"},
-                    {name: "WAV to MP3", value: "wav-to-mp3", description: "Convert WAV to MP3"},
-                    {name: "AAC to MP3", value: "aac-to-mp3", description: "Convert AAC to MP3"},
-                    {name: "OGG to MP3", value: "ogg-to-mp3", description: "Convert OGG to MP3"},
-                    {name: "M4A to MP3", value: "m4a-to-mp3", description: "Convert M4A to MP3"},
-                    {name: "FLAC to MP3", value: "flac-to-mp3", description: "Convert FLAC to MP3"}
-                ],
-                hasQuality: true
-            },
-            image: {
-                title: "Image Converter",
-                formats: [
-                    {name: "JPG", value: "jpg", description: "JPG Image File"},
-                    {name: "PNG to JPG", value: "png-to-jpg", description: "Convert PNG to JPG"},
-                    {name: "HEIC to JPG", value: "heic-to-jpg", description: "Convert HEIC to JPG"},
-                    {name: "JPG to PDF", value: "jpg-to-pdf", description: "Convert JPG to PDF"},
-                    {name: "Image to PDF", value: "image-to-pdf", description: "Combine images to PDF"},
-                    {name: "WEBP to JPG", value: "webp-to-jpg", description: "Convert WEBP to JPG"}
-                ],
-                hasQuality: false
-            },
-            document: {
-                title: "Document Converter",
-                formats: [
-                    {name: "PDF to Word", value: "pdf-to-word", description: "Convert PDF to DOCX"},
-                    {name: "Word to PDF", value: "word-to-pdf", description: "Convert DOCX to PDF"},
-                    {name: "Excel to PDF", value: "excel-to-pdf", description: "Convert XLSX to PDF"},
-                    {name: "EPUB to PDF", value: "epub-to-pdf", description: "Convert EPUB to PDF"},
-                    {name: "EPUB to MOBI", value: "epub-to-mobi", description: "Convert EPUB to MOBI"},
-                    {name: "PDF to TXT", value: "pdf-to-txt", description: "Extract text from PDF"}
-                ],
-                hasQuality: false
-            },
-            archive: {
-                title: "Archive Converter",
-                formats: [
-                    {name: "ZIP", value: "zip", description: "ZIP Archive"},
-                    {name: "RAR to ZIP", value: "rar-to-zip", description: "Convert RAR to ZIP"},
-                    {name: "7Z to ZIP", value: "7z-to-zip", description: "Convert 7Z to ZIP"},
-                    {name: "TAR to ZIP", value: "tar-to-zip", description: "Convert TAR to ZIP"},
-                    {name: "ZIP to RAR", value: "zip-to-rar", description: "Convert ZIP to RAR"},
-                    {name: "Extract Archive", value: "extract-archive", description: "Extract files from archive"}
-                ],
-                hasQuality: false
-            },
-            timezone: {
-                title: "Time Zone Converter",
-                formats: [
-                    {name: "PST to EST", value: "pst-to-est", description: "Convert Pacific to Eastern Time"},
-                    {name: "CST to EST", value: "cst-to-est", description: "Convert Central to Eastern Time"},
-                    {name: "EST to GMT", value: "est-to-gmt", description: "Convert Eastern to Greenwich Mean Time"},
-                    {name: "IST to EST", value: "ist-to-est", description: "Convert India to Eastern Time"},
-                    {name: "AEST to EST", value: "aest-to-est", description: "Convert Australian Eastern to Eastern Time"},
-                    {name: "Custom Time Zone", value: "custom-timezone", description: "Convert between any time zones"}
-                ],
-                hasQuality: false
-            },
-            unit: {
-                title: "Unit Converter",
-                formats: [
-                    {name: "Lbs to Kg", value: "lbs-to-kg", description: "Convert pounds to kilograms"},
-                    {name: "Kg to Lbs", value: "kg-to-lbs", description: "Convert kilograms to pounds"},
-                    {name: "Feet to Meters", value: "feet-to-meters", description: "Convert feet to meters"},
-                    {name: "Miles to Kilometers", value: "miles-to-km", description: "Convert miles to kilometers"},
-                    {name: "Fahrenheit to Celsius", value: "f-to-c", description: "Convert Fahrenheit to Celsius"},
-                    {name: "Custom Unit", value: "custom-unit", description: "Convert between any units"}
-                ],
-                hasQuality: false
-            },
-            bonus: {
-                title: "Bonus Tools",
-                formats: [
-                    {name: "Collage Maker", value: "collage-maker", description: "Combine multiple images into one"},
-                    {name: "Image Resizer", value: "image-resizer", description: "Resize images without quality loss"},
-                    {name: "Image Cropper", value: "image-cropper", description: "Crop images to desired dimensions"},
-                    {name: "Color Picker", value: "color-picker", description: "Extract HEX/RGB codes from images"},
-                    {name: "PDF Merger", value: "pdf-merger", description: "Combine multiple PDFs into one"},
-                    {name: "PDF Splitter", value: "pdf-splitter", description: "Split PDF into multiple files"}
-                ],
-                hasQuality: false
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navDesktop = document.querySelector('.nav-desktop');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            navDesktop.classList.toggle('show');
+            const icon = mobileMenuButton.querySelector('i');
+            if (navDesktop.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
             }
-        };
-
-        // Current files to convert
-        let filesToConvert = [];
-
-        // Show the selected converter interface
-        function showConverter(type) {
-            const converter = converters[type];
-            document.getElementById('converter-title').textContent = converter.title;
-            
-            // Populate format options
-            const formatSelect = document.getElementById('outputFormat');
-            formatSelect.innerHTML = '';
-            converter.formats.forEach(format => {
-                const option = document.createElement('option');
-                option.value = format.value;
-                option.textContent = format.name;
-                option.title = format.description;
-                formatSelect.appendChild(option);
+        });
+        
+        // Tools Tabs
+        const toolTabs = document.querySelectorAll('.tool-tab');
+        const categoryContents = document.querySelectorAll('.category-content');
+        
+        toolTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                toolTabs.forEach(t => t.classList.remove('active'));
+                categoryContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const category = tab.getAttribute('data-category');
+                document.getElementById(`${category}-content`).classList.add('active');
             });
+        });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all answers
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Open clicked answer if it was closed
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonials = [
+            {
+                content: "I've tried many file converters before, but ClaudConverter Pro is by far the fastest and most reliable. The batch processing feature saves me hours every week!",
+                name: "Sarah Johnson",
+                role: "Graphic Designer",
+                image: "https://randomuser.me/api/portraits/women/43.jpg"
+            },
+            {
+                content: "As a video editor, I need to convert files daily. ClaudConverter Pro handles everything I throw at it without compromising quality. The Pro plan is worth every penny!",
+                name: "Michael Chen",
+                role: "Video Editor",
+                image: "https://randomuser.me/api/portraits/men/32.jpg"
+            },
+            {
+                content: "The document conversion tools have been a lifesaver for my small business. Converting invoices and reports between formats is now a breeze.",
+                name: "Emma Rodriguez",
+                role: "Small Business Owner",
+                image: "https://randomuser.me/api/portraits/women/65.jpg"
+            }
+        ];
+        
+        const testimonialContent = document.querySelector('.testimonial-content');
+        const authorAvatar = document.querySelector('.author-avatar img');
+        const authorName = document.querySelector('.author-name');
+        const authorRole = document.querySelector('.author-role');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function showTestimonial(index) {
+            testimonialContent.textContent = testimonials[index].content;
+            authorAvatar.src = testimonials[index].image;
+            authorAvatar.alt = testimonials[index].name;
+            authorName.textContent = testimonials[index].name;
+            authorRole.textContent = testimonials[index].role;
             
-            // Show/hide quality options
-            document.getElementById('qualityGroup').style.display = converter.hasQuality ? 'block' : 'none';
-            
-            // Show the converter interface
-            document.getElementById('converter-interface').style.display = 'block';
-            
-            // Scroll to the converter
-            document.getElementById('converter-interface').scrollIntoView({ behavior: 'smooth' });
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+                dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+            });
         }
-
-        // Initialize drag and drop
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropArea = document.getElementById('dropArea');
-            const fileInput = document.getElementById('fileInput');
-            
-            // Prevent default drag behaviors
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                dropArea.addEventListener(eventName, preventDefaults, false);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showTestimonial(index);
             });
-            
-            // Highlight drop area when item is dragged over it
-            ['dragenter', 'dragover'].forEach(eventName => {
-                dropArea.addEventListener(eventName, highlight, false);
-            });
-            
-            ['dragleave', 'drop'].forEach(eventName => {
-                dropArea.addEventListener(eventName, unhighlight, false);
-            });
-            
-            // Handle dropped files
-            dropArea.addEventListener('drop', handleDrop, false);
-            
-            // Handle selected files
-            fileInput.addEventListener('change', handleFiles, false);
-            
-            // Convert button click
-            document.getElementById('convertBtn').addEventListener('click', startConversion);
-            
-            // Download button click
-            document.getElementById('downloadBtn').addEventListener('click', downloadFiles);
+        });
+        
+        // Auto-rotate testimonials
+        let currentTestimonial = 0;
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // File Upload Interactions
+        const fileDropArea = document.getElementById('fileDropArea');
+        const browseButton = document.querySelector('.browse-button');
+        
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileDropArea.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
         });
         
         function preventDefaults(e) {
@@ -924,121 +1662,83 @@
             e.stopPropagation();
         }
         
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileDropArea.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileDropArea.addEventListener(eventName, unhighlight, false);
+        });
+        
         function highlight() {
-            document.getElementById('dropArea').classList.add('active');
+            fileDropArea.classList.add('highlight');
         }
         
         function unhighlight() {
-            document.getElementById('dropArea').classList.remove('active');
+            fileDropArea.classList.remove('highlight');
         }
+        
+        // Handle dropped files
+        fileDropArea.addEventListener('drop', handleDrop, false);
         
         function handleDrop(e) {
             const dt = e.dataTransfer;
             const files = dt.files;
-            handleFiles({ target: { files } });
+            handleFiles(files);
         }
         
-        function handleFiles(e) {
-            const files = e.target.files;
-            filesToConvert = Array.from(files);
-            updateFileList();
-        }
+        // Handle file selection via button
+        browseButton.addEventListener('click', () => {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.multiple = true;
+            fileInput.onchange = () => {
+                handleFiles(fileInput.files);
+            };
+            fileInput.click();
+        });
         
-        function updateFileList() {
-            const fileList = document.getElementById('fileList');
-            fileList.innerHTML = '';
-            
-            if (filesToConvert.length === 0) {
-                return;
+        function handleFiles(files) {
+            if (files.length > 0) {
+                // In a real app, you would upload files here
+                alert(`You've selected ${files.length} file(s) for conversion. In a real application, these files would now be processed.`);
             }
-            
-            filesToConvert.forEach((file, index) => {
-                const fileItem = document.createElement('div');
-                fileItem.className = 'file-item';
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                const fileInfo = document.createElement('div');
-                fileInfo.className = 'file-info';
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                const fileIcon = document.createElement('i');
-                fileIcon.className = 'file-icon fas fa-file';
-                
-                const fileName = document.createElement('span');
-                fileName.textContent = file.name;
-                
-                fileInfo.appendChild(fileIcon);
-                fileInfo.appendChild(fileName);
-                
-                const fileActions = document.createElement('div');
-                fileActions.className = 'file-actions';
-                
-                const removeBtn = document.createElement('button');
-                removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                removeBtn.onclick = () => removeFile(index);
-                
-                fileActions.appendChild(removeBtn);
-                
-                fileItem.appendChild(fileInfo);
-                fileItem.appendChild(fileActions);
-                
-                fileList.appendChild(fileItem);
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (navDesktop.classList.contains('show')) {
+                        mobileMenuButton.click();
+                    }
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
-        }
+        });
         
-        function removeFile(index) {
-            filesToConvert.splice(index, 1);
-            updateFileList();
-        }
-        
-        function startConversion() {
-            if (filesToConvert.length === 0) {
-                alert('Please select at least one file to convert.');
-                return;
-            }
-            
-            const outputFormat = document.getElementById('outputFormat').value;
-            const quality = document.getElementById('qualityGroup').style.display === 'block' 
-                ? document.getElementById('quality').value 
-                : null;
-            
-            // Show modal
-            document.getElementById('conversionModal').style.display = 'flex';
-            document.getElementById('conversionStatus').textContent = 'Starting conversion...';
-            
-            // Simulate conversion progress
-            let progress = 0;
-            const progressInterval = setInterval(() => {
-                progress += Math.random() * 10;
-                if (progress > 100) progress = 100;
-                document.getElementById('conversionProgress').style.width = progress + '%';
-                
-                if (progress < 30) {
-                    document.getElementById('conversionStatus').textContent = 'Uploading files...';
-                } else if (progress < 70) {
-                    document.getElementById('conversionStatus').textContent = 'Converting files...';
-                } else if (progress < 90) {
-                    document.getElementById('conversionStatus').textContent = 'Processing output...';
-                } else {
-                    document.getElementById('conversionStatus').textContent = 'Conversion complete!';
-                }
-                
-                if (progress === 100) {
-                    clearInterval(progressInterval);
-                    document.getElementById('downloadBtn').style.display = 'block';
-                }
-            }, 300);
-        }
-        
-        function closeModal() {
-            document.getElementById('conversionModal').style.display = 'none';
-            document.getElementById('conversionProgress').style.width = '0%';
-            document.getElementById('downloadBtn').style.display = 'none';
-        }
-        
-        function downloadFiles() {
-            // In a real app, this would download the actual converted files
-            // For this demo, we'll just show an alert
-            alert('Your converted files would download now. In a real application, this would trigger the download of the actual converted files.');
-            closeModal();
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
         }
     </script>
 </body>
