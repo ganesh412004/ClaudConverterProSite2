@@ -132,6 +132,89 @@
             color: #555;
         }
 
+        .image-upload-section {
+            padding: 60px 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .image-upload-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .image-upload-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .image-upload-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .image-upload-box {
+            border: 2px dashed #ccc;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .image-upload-box.active {
+            border-color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .image-upload-box i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .image-upload-box h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .image-upload-box p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .file-requirements {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-item i {
+            color: var(--success-color);
+        }
+
         .converter-types {
             padding: 60px 0;
         }
@@ -431,6 +514,10 @@
             .hero p {
                 font-size: 18px;
             }
+
+            .image-upload-container {
+                padding: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -448,6 +535,14 @@
 
             .converter-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .image-upload-box {
+                padding: 20px;
+            }
+
+            .image-upload-box h3 {
+                font-size: 18px;
             }
         }
 
@@ -525,7 +620,43 @@
         <div class="container">
             <h1>Convert Anything, Anytime</h1>
             <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
-            <a href="#converters" class="btn">Start Converting Now</a>
+            <a href="#image-upload" class="btn">Start Converting Now</a>
+        </div>
+    </section>
+
+    <section id="image-upload" class="image-upload-section">
+        <div class="container">
+            <div class="image-upload-container">
+                <h2 class="image-upload-title">Image Converter</h2>
+                <p class="image-upload-subtitle">Convert between JPG, PNG, WebP, HEIC and more</p>
+                
+                <div class="image-upload-box" id="imageDropArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag and drop an image or browse to upload</h3>
+                    <p>Upload your photo</p>
+                    <input type="file" id="imageFileInput" class="file-input" accept="image/*">
+                    <button class="btn" onclick="document.getElementById('imageFileInput').click()">Browse Files</button>
+                </div>
+                
+                <div class="file-requirements">
+                    <p>File must be PNG or WebP and up to 40MB</p>
+                </div>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Free to use 💷 No credit card required</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Secure processing with automatic file deletion</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>High quality conversions with no watermark</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -891,26 +1022,43 @@
         document.addEventListener('DOMContentLoaded', function() {
             const dropArea = document.getElementById('dropArea');
             const fileInput = document.getElementById('fileInput');
+            const imageDropArea = document.getElementById('imageDropArea');
+            const imageFileInput = document.getElementById('imageFileInput');
             
             // Prevent default drag behaviors
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, preventDefaults, false);
+                imageDropArea.addEventListener(eventName, preventDefaults, false);
             });
             
             // Highlight drop area when item is dragged over it
             ['dragenter', 'dragover'].forEach(eventName => {
                 dropArea.addEventListener(eventName, highlight, false);
+                imageDropArea.addEventListener(eventName, function() {
+                    imageDropArea.classList.add('active');
+                }, false);
             });
             
             ['dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, unhighlight, false);
+                imageDropArea.addEventListener(eventName, function() {
+                    imageDropArea.classList.remove('active');
+                }, false);
             });
             
             // Handle dropped files
             dropArea.addEventListener('drop', handleDrop, false);
+            imageDropArea.addEventListener('drop', function(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    handleImageFiles({ target: { files } });
+                }
+            }, false);
             
             // Handle selected files
             fileInput.addEventListener('change', handleFiles, false);
+            imageFileInput.addEventListener('change', handleImageFiles, false);
             
             // Convert button click
             document.getElementById('convertBtn').addEventListener('click', startConversion);
@@ -942,6 +1090,27 @@
             const files = e.target.files;
             filesToConvert = Array.from(files);
             updateFileList();
+        }
+        
+        function handleImageFiles(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.size > 40 * 1024 * 1024) {
+                    alert('File size must be less than 40MB');
+                    return;
+                }
+                
+                if (!file.type.match('image.*')) {
+                    alert('Please select an image file (PNG, JPG, WebP)');
+                    return;
+                }
+                
+                // Show image converter interface
+                showConverter('image');
+                filesToConvert = [file];
+                updateFileList();
+            }
         }
         
         function updateFileList() {
