@@ -492,6 +492,72 @@
             font-size: 14px;
         }
 
+        /* Support Pages Styles */
+        .support-page {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        .support-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .support-content h1 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .support-content h2 {
+            margin: 30px 0 15px;
+            color: var(--dark-color);
+        }
+
+        .support-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .header-content {
@@ -516,6 +582,10 @@
             }
 
             .image-upload-container {
+                padding: 20px;
+            }
+
+            .support-content {
                 padding: 20px;
             }
         }
@@ -602,278 +672,518 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo">Claud<span>Converter</span> Pro</a>
-            <nav>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#converters">Converters</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#" class="btn btn-outline">Premium</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Convert Anything, Anytime</h1>
-            <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
-            <a href="#image-upload" class="btn">Start Converting Now</a>
-        </div>
-    </section>
-
-    <section id="image-upload" class="image-upload-section">
-        <div class="container">
-            <div class="image-upload-container">
-                <h2 class="image-upload-title">Image Converter</h2>
-                <p class="image-upload-subtitle">Convert between JPG, PNG, WebP, HEIC and more</p>
-                
-                <div class="image-upload-box" id="imageDropArea">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Drag and drop an image or browse to upload</h3>
-                    <p>Upload your photo</p>
-                    <input type="file" id="imageFileInput" class="file-input" accept="image/*">
-                    <button class="btn" onclick="document.getElementById('imageFileInput').click()">Browse Files</button>
-                </div>
-                
-                <div class="file-requirements">
-                    <p>File must be PNG or WebP and up to 40MB</p>
-                </div>
-                
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Free to use 💷 No credit card required</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Secure processing with automatic file deletion</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>High quality conversions with no watermark</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="converters" class="converter-types">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Conversion Tools</h2>
-                <p>Choose from our wide range of conversion tools to transform your files into the format you need.</p>
-            </div>
-            <div class="converter-grid">
-                <!-- Video Converters -->
-                <div class="converter-card" onclick="showConverter('video')">
-                    <div class="converter-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Video Converter</h3>
-                    <p>Convert between MP4, MOV, AVI, and more. Extract audio from videos.</p>
-                </div>
-
-                <!-- Audio Converters -->
-                <div class="converter-card" onclick="showConverter('audio')">
-                    <div class="converter-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3>Audio Converter</h3>
-                    <p>Convert MP3, WAV, AAC, and other audio formats with ease.</p>
-                </div>
-
-                <!-- Image Converters -->
-                <div class="converter-card" onclick="showConverter('image')">
-                    <div class="converter-icon">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <h3>Image Converter</h3>
-                    <p>Convert JPG, PNG, HEIC, and more. Create PDFs from images.</p>
-                </div>
-
-                <!-- Document Converters -->
-                <div class="converter-card" onclick="showConverter('document')">
-                    <div class="converter-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Document Converter</h3>
-                    <p>Convert PDF to Word, Excel to PDF, EPUB to MOBI, and more.</p>
-                </div>
-
-                <!-- Archive Converters -->
-                <div class="converter-card" onclick="showConverter('archive')">
-                    <div class="converter-icon">
-                        <i class="fas fa-file-archive"></i>
-                    </div>
-                    <h3>Archive Converter</h3>
-                    <p>Convert between ZIP, RAR, 7Z and other archive formats.</p>
-                </div>
-
-                <!-- Time Zone Converters -->
-                <div class="converter-card" onclick="showConverter('timezone')">
-                    <div class="converter-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time Zone Converter</h3>
-                    <p>Convert between different time zones instantly.</p>
-                </div>
-
-                <!-- Unit Converters -->
-                <div class="converter-card" onclick="showConverter('unit')">
-                    <div class="converter-icon">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                    <h3>Unit Converter</h3>
-                    <p>Convert between lbs/kg, feet/meters, and other units.</p>
-                </div>
-
-                <!-- Bonus Tools -->
-                <div class="converter-card" onclick="showConverter('bonus')">
-                    <div class="converter-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3>Bonus Tools</h3>
-                    <p>Image resizer, collage maker, color picker, and more.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="converter-interface" class="converter-interface" style="display: none;">
-        <div class="container">
-            <div class="converter-box">
-                <h2 id="converter-title">Video Converter</h2>
-                <div class="drop-area" id="dropArea">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>Drag & drop your files here or click to browse</p>
-                    <input type="file" id="fileInput" class="file-input" multiple>
-                    <button class="btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
-                </div>
-                <div class="file-list" id="fileList"></div>
-                <div class="conversion-options">
-                    <div class="option-group">
-                        <label for="outputFormat">Output Format</label>
-                        <select id="outputFormat">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                    </div>
-                    <div class="option-group" id="qualityGroup" style="display: none;">
-                        <label for="quality">Quality</label>
-                        <select id="quality">
-                            <option value="high">High</option>
-                            <option value="medium" selected>Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                    </div>
-                    <button class="btn convert-btn" id="convertBtn">Convert Now</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose ClaudConverter Pro?</h2>
-                <p>Discover the features that make our tool stand out from the competition.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>100% Secure</h3>
-                    <p>Your files are protected with advanced encryption and automatically deleted after conversion.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Fast Conversions</h3>
-                    <p>Our cloud-powered servers ensure your files are converted quickly, no matter the size.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Works Everywhere</h3>
-                    <p>Access ClaudConverter Pro from any device - desktop, tablet, or mobile.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>All-in-One Solution</h3>
-                    <p>No need for multiple tools - we handle all your conversion needs in one place.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Cloud Powered</h3>
-                    <p>No software installation required. Convert files directly from your browser.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Batch Processing</h3>
-                    <p>Convert multiple files at once to save time and effort.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ClaudConverter Pro</h3>
-                    <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
+    <!-- Main App Container (initially visible) -->
+    <div id="app-container">
+        <header>
+            <div class="container header-content">
+                <a href="#" class="logo" onclick="showHomePage()">Claud<span>Converter</span> Pro</a>
+                <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#converters">Converters</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                        <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                        <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
+                        <li><a href="#" class="btn btn-outline">Premium</a></li>
                     </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to get updates and special offers.</p>
-                    <form>
-                        <input type="email" placeholder="Your email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <h1>Convert Anything, Anytime</h1>
+                <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
+                <a href="#image-upload" class="btn">Start Converting Now</a>
+            </div>
+        </section>
+
+        <section id="image-upload" class="image-upload-section">
+            <div class="container">
+                <div class="image-upload-container">
+                    <h2 class="image-upload-title">Image Converter</h2>
+                    <p class="image-upload-subtitle">Convert between JPG, PNG, WebP, HEIC and more</p>
+                    
+                    <div class="image-upload-box" id="imageDropArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drag and drop an image or browse to upload</h3>
+                        <p>Upload your photo</p>
+                        <input type="file" id="imageFileInput" class="file-input" accept="image/*">
+                        <button class="btn" onclick="document.getElementById('imageFileInput').click()">Browse Files</button>
+                    </div>
+                    
+                    <div class="file-requirements">
+                        <p>File must be PNG or WebP and up to 40MB</p>
+                    </div>
+                    
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free to use 💷 No credit card required</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Secure processing with automatic file deletion</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>High quality conversions with no watermark</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 ClaudConverter Pro. All rights reserved.</p>
+        </section>
+
+        <section id="converters" class="converter-types">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Conversion Tools</h2>
+                    <p>Choose from our wide range of conversion tools to transform your files into the format you need.</p>
+                </div>
+                <div class="converter-grid">
+                    <!-- Video Converters -->
+                    <div class="converter-card" onclick="showConverter('video')">
+                        <div class="converter-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Video Converter</h3>
+                        <p>Convert between MP4, MOV, AVI, and more. Extract audio from videos.</p>
+                    </div>
+
+                    <!-- Audio Converters -->
+                    <div class="converter-card" onclick="showConverter('audio')">
+                        <div class="converter-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Audio Converter</h3>
+                        <p>Convert MP3, WAV, AAC, and other audio formats with ease.</p>
+                    </div>
+
+                    <!-- Image Converters -->
+                    <div class="converter-card" onclick="showConverter('image')">
+                        <div class="converter-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3>Image Converter</h3>
+                        <p>Convert JPG, PNG, HEIC, and more. Create PDFs from images.</p>
+                    </div>
+
+                    <!-- Document Converters -->
+                    <div class="converter-card" onclick="showConverter('document')">
+                        <div class="converter-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Document Converter</h3>
+                        <p>Convert PDF to Word, Excel to PDF, EPUB to MOBI, and more.</p>
+                    </div>
+
+                    <!-- Archive Converters -->
+                    <div class="converter-card" onclick="showConverter('archive')">
+                        <div class="converter-icon">
+                            <i class="fas fa-file-archive"></i>
+                        </div>
+                        <h3>Archive Converter</h3>
+                        <p>Convert between ZIP, RAR, 7Z and other archive formats.</p>
+                    </div>
+
+                    <!-- Time Zone Converters -->
+                    <div class="converter-card" onclick="showConverter('timezone')">
+                        <div class="converter-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Time Zone Converter</h3>
+                        <p>Convert between different time zones instantly.</p>
+                    </div>
+
+                    <!-- Unit Converters -->
+                    <div class="converter-card" onclick="showConverter('unit')">
+                        <div class="converter-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3>Unit Converter</h3>
+                        <p>Convert between lbs/kg, feet/meters, and other units.</p>
+                    </div>
+
+                    <!-- Bonus Tools -->
+                    <div class="converter-card" onclick="showConverter('bonus')">
+                        <div class="converter-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>Bonus Tools</h3>
+                        <p>Image resizer, collage maker, color picker, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="converter-interface" class="converter-interface" style="display: none;">
+            <div class="container">
+                <div class="converter-box">
+                    <h2 id="converter-title">Video Converter</h2>
+                    <div class="drop-area" id="dropArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your files here or click to browse</p>
+                        <input type="file" id="fileInput" class="file-input" multiple>
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
+                    </div>
+                    <div class="file-list" id="fileList"></div>
+                    <div class="conversion-options">
+                        <div class="option-group">
+                            <label for="outputFormat">Output Format</label>
+                            <select id="outputFormat">
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="option-group" id="qualityGroup" style="display: none;">
+                            <label for="quality">Quality</label>
+                            <select id="quality">
+                                <option value="high">High</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <button class="btn convert-btn" id="convertBtn">Convert Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose ClaudConverter Pro?</h2>
+                    <p>Discover the features that make our tool stand out from the competition.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>100% Secure</h3>
+                        <p>Your files are protected with advanced encryption and automatically deleted after conversion.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Conversions</h3>
+                        <p>Our cloud-powered servers ensure your files are converted quickly, no matter the size.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Works Everywhere</h3>
+                        <p>Access ClaudConverter Pro from any device - desktop, tablet, or mobile.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>All-in-One Solution</h3>
+                        <p>No need for multiple tools - we handle all your conversion needs in one place.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Powered</h3>
+                        <p>No software installation required. Convert files directly from your browser.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Batch Processing</h3>
+                        <p>Convert multiple files at once to save time and effort.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>ClaudConverter Pro</h3>
+                        <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Home</a></li>
+                            <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                            <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSupportPage('help-center')">Help Center</a></li>
+                            <li><a href="#" onclick="showSupportPage('contact')">Contact Us</a></li>
+                            <li><a href="#" onclick="showSupportPage('faq')">FAQ</a></li>
+                            <li><a href="#" onclick="showSupportPage('privacy')">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showSupportPage('terms')">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to get updates and special offers.</p>
+                        <form id="newsletterForm">
+                            <input type="email" id="newsletterEmail" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Support Pages Container (initially hidden) -->
+    <div id="support-container" style="display: none;">
+        <header>
+            <div class="container header-content">
+                <a href="#" class="logo" onclick="showHomePage()">Claud<span>Converter</span> Pro</a>
+                <nav>
+                    <ul>
+                        <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                        <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                        <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
+                        <li><a href="#" class="btn btn-outline">Premium</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="help-center-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Help Center</h1>
+                    <p>Welcome to the ClaudConverter Pro Help Center. Here you'll find answers to common questions and resources to help you get the most out of our service.</p>
+                    
+                    <h2>Getting Started</h2>
+                    <p>Learn how to use ClaudConverter Pro with our step-by-step guides:</p>
+                    <ul>
+                        <li><a href="#" onclick="showSupportPage('faq')">How to convert files</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Supported file formats</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Managing your account</a></li>
+                    </ul>
+                    
+                    <h2>Troubleshooting</h2>
+                    <p>Having issues with our service? Check these resources:</p>
+                    <ul>
+                        <li><a href="#" onclick="showSupportPage('faq')">File conversion errors</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Upload problems</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Download issues</a></li>
+                    </ul>
+                    
+                    <h2>Need More Help?</h2>
+                    <p>If you can't find what you're looking for, please <a href="#" onclick="showSupportPage('contact')">contact our support team</a>.</p>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div id="contact-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Contact Us</h1>
+                    <p>Have questions or need assistance? Our team is here to help you with any issues you might encounter.</p>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Your Name</label>
+                                <input type="text" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <select id="contactSubject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="billing">Billing Question</option>
+                                    <option value="feedback">Feedback/Suggestions</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <h2>Other Ways to Reach Us</h2>
+                    <p><strong>Email:</strong> support@claudconverter.com</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Business Hours:</strong> Monday-Friday, 9AM-5PM EST</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="faq-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Find quick answers to common questions about ClaudConverter Pro.</p>
+                    
+                    <h2>General Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">What is ClaudConverter Pro?</div>
+                        <p>ClaudConverter Pro is an all-in-one file conversion tool that allows you to convert between various file formats including documents, images, videos, audio files, and more.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is ClaudConverter Pro free to use?</div>
+                        <p>Yes! We offer free conversions with some limitations. For unlimited conversions and advanced features, you can upgrade to our Premium plan.</p>
+                    </div>
+                    
+                    <h2>File Conversion</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">What file formats do you support?</div>
+                        <p>We support over 100 file formats across documents, images, videos, audio, archives, and more. Visit our <a href="#" onclick="showSupportPage('help-center')">Help Center</a> for a complete list.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is there a file size limit?</div>
+                        <p>Free users can convert files up to 50MB. Premium users can convert files up to 2GB.</p>
+                    </div>
+                    
+                    <h2>Account & Billing</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">How do I cancel my subscription?</div>
+                        <p>You can cancel anytime from your account settings. Your subscription will remain active until the end of the current billing period.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is my payment information secure?</div>
+                        <p>Yes, we use industry-standard encryption and never store your full payment details on our servers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="privacy-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Privacy Policy</h1>
+                    <p>Last Updated: January 1, 2025</p>
+                    
+                    <h2>1. Information We Collect</h2>
+                    <p>We collect information you provide directly to us, such as when you create an account, use our services, or contact us for support. This may include:</p>
+                    <ul>
+                        <li>Contact information (name, email address)</li>
+                        <li>Account credentials</li>
+                        <li>Files you upload for conversion</li>
+                        <li>Payment information for premium services</li>
+                    </ul>
+                    
+                    <h2>2. How We Use Your Information</h2>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Provide, maintain, and improve our services</li>
+                        <li>Process transactions and send related information</li>
+                        <li>Respond to your comments, questions, and requests</li>
+                        <li>Monitor and analyze usage and trends</li>
+                    </ul>
+                    
+                    <h2>3. Data Security</h2>
+                    <p>We implement appropriate technical and organizational measures to protect your personal data. All file conversions are processed securely and files are automatically deleted after conversion.</p>
+                    
+                    <h2>4. Changes to This Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="terms-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Terms of Service</h1>
+                    <p>Last Updated: January 1, 2025</p>
+                    
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By accessing or using ClaudConverter Pro, you agree to be bound by these Terms of Service. If you do not agree, you may not use our services.</p>
+                    
+                    <h2>2. Description of Service</h2>
+                    <p>ClaudConverter Pro provides file conversion services through its website and applications. We reserve the right to modify or discontinue the service at any time.</p>
+                    
+                    <h2>3. User Responsibilities</h2>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Use the service for any illegal purpose</li>
+                        <li>Upload content that infringes on any intellectual property rights</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                        <li>Upload files containing viruses or malicious code</li>
+                    </ul>
+                    
+                    <h2>4. Limitation of Liability</h2>
+                    <p>ClaudConverter Pro shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of or inability to use the service.</p>
+                    
+                    <h2>5. Governing Law</h2>
+                    <p>These Terms shall be governed by the laws of the State of Delaware without regard to its conflict of law provisions.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>ClaudConverter Pro</h3>
+                        <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Home</a></li>
+                            <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                            <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSupportPage('help-center')">Help Center</a></li>
+                            <li><a href="#" onclick="showSupportPage('contact')">Contact Us</a></li>
+                            <li><a href="#" onclick="showSupportPage('faq')">FAQ</a></li>
+                            <li><a href="#" onclick="showSupportPage('privacy')">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showSupportPage('terms')">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to get updates and special offers.</p>
+                        <form id="supportNewsletterForm">
+                            <input type="email" id="supportNewsletterEmail" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <!-- Conversion Modal -->
     <div class="modal" id="conversionModal">
@@ -1018,6 +1328,28 @@
             document.getElementById('converter-interface').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Show home page
+        function showHomePage() {
+            document.getElementById('app-container').style.display = 'block';
+            document.getElementById('support-container').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        // Show support page
+        function showSupportPage(page) {
+            document.getElementById('app-container').style.display = 'none';
+            document.getElementById('support-container').style.display = 'block';
+            
+            // Hide all support pages first
+            document.querySelectorAll('#support-container .support-page').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the requested page
+            document.getElementById(`${page}-page`).style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
         // Initialize drag and drop
         document.addEventListener('DOMContentLoaded', function() {
             const dropArea = document.getElementById('dropArea');
@@ -1065,6 +1397,37 @@
             
             // Download button click
             document.getElementById('downloadBtn').addEventListener('click', downloadFiles);
+            
+            // Newsletter form submission
+            document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('newsletterEmail').value;
+                alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                this.reset();
+            });
+            
+            // Support newsletter form submission
+            document.getElementById('supportNewsletterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('supportNewsletterEmail').value;
+                alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                this.reset();
+            });
+            
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! Our support team will get back to you soon.');
+                this.reset();
+            });
+            
+            // Check if there's a hash in the URL for support pages
+            if (window.location.hash) {
+                const page = window.location.hash.substring(1);
+                if (['help-center', 'contact', 'faq', 'privacy', 'terms'].includes(page)) {
+                    showSupportPage(page);
+                }
+            }
         });
         
         function preventDefaults(e) {
