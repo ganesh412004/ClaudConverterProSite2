@@ -1,3 +1,13 @@
+name = "ClaudConverterPro"
+type = "javascript"
+account_id = "your_account_id"
+workers_dev = true
+
 [build]
-command = "bash build.sh"
+command = ""
+publish = "."
+
+[vars]
+CLOUDFLARE_API_TOKEN = "54627add21702edb887b738d4fa1b1533b8f0"
+command = "npm run build"
 publish = "."
