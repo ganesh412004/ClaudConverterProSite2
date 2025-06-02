@@ -5,160 +5,1185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClaudConverter Pro - All-in-One File Conversion Suite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4cc9f0;
+            --warning-color: #f72585;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .image-upload-section {
+            padding: 60px 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .image-upload-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .image-upload-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .image-upload-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .image-upload-box {
+            border: 2px dashed #ccc;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .image-upload-box.active {
+            border-color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .image-upload-box i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .image-upload-box h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .image-upload-box p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .file-requirements {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-item i {
+            color: var(--success-color);
+        }
+
+        .converter-types {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .converter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .converter-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .converter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .converter-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .converter-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .converter-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .converter-interface {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .converter-box {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .drop-area {
+            border: 2px dashed #ccc;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .drop-area.active {
+            border-color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .drop-area i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .drop-area p {
+            margin-bottom: 15px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-list {
+            margin-top: 20px;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .file-icon {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .file-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            transition: var(--transition);
+        }
+
+        .file-actions button:hover {
+            color: var(--primary-color);
+        }
+
+        .conversion-options {
+            margin-top: 30px;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .option-group select, .option-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+
+        .convert-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .features {
+            padding: 60px 0;
+            background-color: #f5f7ff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Support Pages Styles */
+        .support-page {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        .support-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .support-content h1 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .support-content h2 {
+            margin: 30px 0 15px;
+            color: var(--dark-color);
+        }
+
+        .support-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .image-upload-container {
+                padding: 20px;
+            }
+
+            .support-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 24px;
+            }
+
+            .converter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-upload-box {
+                padding: 20px;
+            }
+
+            .image-upload-box h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .download-btn {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo">Claud<span>Converter</span> Pro</a>
-            <nav>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#converters">Converters</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#" class="btn btn-outline">Premium</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Convert Anything, Anytime</h1>
-            <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
-            <a href="#converters" class="btn">Start Converting Now</a>
-        </div>
-    </section>
-
-    <section id="converters" class="converter-types">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Conversion Tools</h2>
-                <p>Choose from our wide range of conversion tools to transform your files into the format you need.</p>
+    <!-- Main App Container (initially visible) -->
+    <div id="app-container">
+        <header>
+            <div class="container header-content">
+                <a href="#" class="logo" onclick="showHomePage()">Claud<span>Converter</span> Pro</a>
+                <nav>
+                    <ul>
+                        <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                        <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                        <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
+                        <li><a href="#" class="btn btn-outline">Premium</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="converter-grid">
-                <!-- Video Converters -->
-                <div class="converter-card" onclick="showConverter('video')">
-                    <div class="converter-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Video Converter</h3>
-                    <p>Convert between MP4, MOV, AVI, and more. Extract audio from videos.</p>
-                </div>
+        </header>
 
-                <!-- Audio Converters -->
-                <div class="converter-card" onclick="showConverter('audio')">
-                    <div class="converter-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3>Audio Converter</h3>
-                    <p>Convert MP3, WAV, AAC, and other audio formats with ease.</p>
-                </div>
-
-                <!-- Image Converters -->
-                <div class="converter-card" onclick="showConverter('image')">
-                    <div class="converter-icon">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <h3>Image Converter</h3>
-                    <p>Convert JPG, PNG, HEIC, and more. Create PDFs from images.</p>
-                </div>
-
-                <!-- Document Converters -->
-                <div class="converter-card" onclick="showConverter('document')">
-                    <div class="converter-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Document Converter</h3>
-                    <p>Convert PDF to Word, Excel to PDF, EPUB to MOBI, and more.</p>
-                </div>
-
-                <!-- Archive Converters -->
-                <div class="converter-card" onclick="showConverter('archive')">
-                    <div class="converter-icon">
-                        <i class="fas fa-file-archive"></i>
-                    </div>
-                    <h3>Archive Converter</h3>
-                    <p>Convert between ZIP, RAR, 7Z and other archive formats.</p>
-                </div>
-
-                <!-- Time Zone Converters -->
-                <div class="converter-card" onclick="showConverter('timezone')">
-                    <div class="converter-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time Zone Converter</h3>
-                    <p>Convert between different time zones instantly.</p>
-                </div>
-
-                <!-- Unit Converters -->
-                <div class="converter-card" onclick="showConverter('unit')">
-                    <div class="converter-icon">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                    <h3>Unit Converter</h3>
-                    <p>Convert between lbs/kg, feet/meters, and other units.</p>
-                </div>
-
-                <!-- Bonus Tools -->
-                <div class="converter-card" onclick="showConverter('bonus')">
-                    <div class="converter-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3>Bonus Tools</h3>
-                    <p>Image resizer, collage maker, color picker, and more.</p>
-                </div>
+        <section class="hero">
+            <div class="container">
+                <h1>Convert Anything, Anytime</h1>
+                <p>ClaudConverter Pro is your all-in-one solution for fast, secure file conversions across multiple formats. No software installation required.</p>
+                <a href="#image-upload" class="btn">Start Converting Now</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="converter-interface" class="converter-interface" style="display: none;">
-        <div class="container">
-            <div class="converter-box">
-                <h2 id="converter-title">Video Converter</h2>
-                <div class="drop-area" id="dropArea">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Drag and drop an image or browse to upload.</h3>
-                    <h4>Upload your photo</h4>
-                    <p>File must be PNG or WebP and up to 40MB</p>
-                    <div class="upload-options">
-                        <div class="option-item">
-                            <input type="checkbox" id="freeUse" checked disabled>
-                            <label for="freeUse">Free to use <span class="free-badge">No credit card required</span></label>
+        <section id="image-upload" class="image-upload-section">
+            <div class="container">
+                <div class="image-upload-container">
+                    <h2 class="image-upload-title">Image Converter</h2>
+                    <p class="image-upload-subtitle">Convert between JPG, PNG, WebP, HEIC and more</p>
+                    
+                    <div class="image-upload-box" id="imageDropArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drag and drop an image or browse to upload</h3>
+                        <p>Upload your photo</p>
+                        <input type="file" id="imageFileInput" class="file-input" accept="image/*">
+                        <button class="btn" onclick="document.getElementById('imageFileInput').click()">Browse Files</button>
+                    </div>
+                    
+                    <div class="file-requirements">
+                        <p>File must be PNG or WebP and up to 40MB</p>
+                    </div>
+                    
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free to use 💷 No credit card required</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Secure processing with automatic file deletion</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>High quality conversions with no watermark</span>
                         </div>
                     </div>
-                    <input type="file" id="fileInput" class="file-input" accept=".png,.webp" multiple>
-                    <button class="btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
                 </div>
-                <div class="file-list" id="fileList"></div>
-                <div class="conversion-options">
-                    <div class="option-group">
-                        <label for="outputFormat">Output Format</label>
-                        <select id="outputFormat">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
+            </div>
+        </section>
+
+        <section id="converters" class="converter-types">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Conversion Tools</h2>
+                    <p>Choose from our wide range of conversion tools to transform your files into the format you need.</p>
+                </div>
+                <div class="converter-grid">
+                    <!-- Video Converters -->
+                    <div class="converter-card" onclick="showConverter('video')">
+                        <div class="converter-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Video Converter</h3>
+                        <p>Convert between MP4, MOV, AVI, and more. Extract audio from videos.</p>
                     </div>
-                    <div class="option-group" id="qualityGroup" style="display: none;">
-                        <label for="quality">Quality</label>
-                        <select id="quality">
-                            <option value="high">High</option>
-                            <option value="medium" selected>Medium</option>
-                            <option value="low">Low</option>
-                        </select>
+
+                    <!-- Audio Converters -->
+                    <div class="converter-card" onclick="showConverter('audio')">
+                        <div class="converter-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Audio Converter</h3>
+                        <p>Convert MP3, WAV, AAC, and other audio formats with ease.</p>
                     </div>
-                    <button class="btn convert-btn" id="convertBtn">Convert Now</button>
+
+                    <!-- Image Converters -->
+                    <div class="converter-card" onclick="showConverter('image')">
+                        <div class="converter-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3>Image Converter</h3>
+                        <p>Convert JPG, PNG, HEIC, and more. Create PDFs from images.</p>
+                    </div>
+
+                    <!-- Document Converters -->
+                    <div class="converter-card" onclick="showConverter('document')">
+                        <div class="converter-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Document Converter</h3>
+                        <p>Convert PDF to Word, Excel to PDF, EPUB to MOBI, and more.</p>
+                    </div>
+
+                    <!-- Archive Converters -->
+                    <div class="converter-card" onclick="showConverter('archive')">
+                        <div class="converter-icon">
+                            <i class="fas fa-file-archive"></i>
+                        </div>
+                        <h3>Archive Converter</h3>
+                        <p>Convert between ZIP, RAR, 7Z and other archive formats.</p>
+                    </div>
+
+                    <!-- Time Zone Converters -->
+                    <div class="converter-card" onclick="showConverter('timezone')">
+                        <div class="converter-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Time Zone Converter</h3>
+                        <p>Convert between different time zones instantly.</p>
+                    </div>
+
+                    <!-- Unit Converters -->
+                    <div class="converter-card" onclick="showConverter('unit')">
+                        <div class="converter-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3>Unit Converter</h3>
+                        <p>Convert between lbs/kg, feet/meters, and other units.</p>
+                    </div>
+
+                    <!-- Bonus Tools -->
+                    <div class="converter-card" onclick="showConverter('bonus')">
+                        <div class="converter-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>Bonus Tools</h3>
+                        <p>Image resizer, collage maker, color picker, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="converter-interface" class="converter-interface" style="display: none;">
+            <div class="container">
+                <div class="converter-box">
+                    <h2 id="converter-title">Video Converter</h2>
+                    <div class="drop-area" id="dropArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your files here or click to browse</p>
+                        <input type="file" id="fileInput" class="file-input" multiple>
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
+                    </div>
+                    <div class="file-list" id="fileList"></div>
+                    <div class="conversion-options">
+                        <div class="option-group">
+                            <label for="outputFormat">Output Format</label>
+                            <select id="outputFormat">
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="option-group" id="qualityGroup" style="display: none;">
+                            <label for="quality">Quality</label>
+                            <select id="quality">
+                                <option value="high">High</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <button class="btn convert-btn" id="convertBtn">Convert Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose ClaudConverter Pro?</h2>
+                    <p>Discover the features that make our tool stand out from the competition.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>100% Secure</h3>
+                        <p>Your files are protected with advanced encryption and automatically deleted after conversion.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Conversions</h3>
+                        <p>Our cloud-powered servers ensure your files are converted quickly, no matter the size.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Works Everywhere</h3>
+                        <p>Access ClaudConverter Pro from any device - desktop, tablet, or mobile.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>All-in-One Solution</h3>
+                        <p>No need for multiple tools - we handle all your conversion needs in one place.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Powered</h3>
+                        <p>No software installation required. Convert files directly from your browser.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Batch Processing</h3>
+                        <p>Convert multiple files at once to save time and effort.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>ClaudConverter Pro</h3>
+                        <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Home</a></li>
+                            <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                            <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSupportPage('help-center')">Help Center</a></li>
+                            <li><a href="#" onclick="showSupportPage('contact')">Contact Us</a></li>
+                            <li><a href="#" onclick="showSupportPage('faq')">FAQ</a></li>
+                            <li><a href="#" onclick="showSupportPage('privacy')">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showSupportPage('terms')">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to get updates and special offers.</p>
+                        <form id="newsletterForm">
+                            <input type="email" id="newsletterEmail" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Support Pages Container (initially hidden) -->
+    <div id="support-container" style="display: none;">
+        <header>
+            <div class="container header-content">
+                <a href="#" class="logo" onclick="showHomePage()">Claud<span>Converter</span> Pro</a>
+                <nav>
+                    <ul>
+                        <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                        <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                        <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
+                        <li><a href="#" class="btn btn-outline">Premium</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="help-center-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Help Center</h1>
+                    <p>Welcome to the ClaudConverter Pro Help Center. Here you'll find answers to common questions and resources to help you get the most out of our service.</p>
+                    
+                    <h2>Getting Started</h2>
+                    <p>Learn how to use ClaudConverter Pro with our step-by-step guides:</p>
+                    <ul>
+                        <li><a href="#" onclick="showSupportPage('faq')">How to convert files</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Supported file formats</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Managing your account</a></li>
+                    </ul>
+                    
+                    <h2>Troubleshooting</h2>
+                    <p>Having issues with our service? Check these resources:</p>
+                    <ul>
+                        <li><a href="#" onclick="showSupportPage('faq')">File conversion errors</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Upload problems</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Download issues</a></li>
+                    </ul>
+                    
+                    <h2>Need More Help?</h2>
+                    <p>If you can't find what you're looking for, please <a href="#" onclick="showSupportPage('contact')">contact our support team</a>.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="features" class="features">
-        <!-- Features section content remains the same as original -->
-    </section>
+        <div id="contact-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Contact Us</h1>
+                    <p>Have questions or need assistance? Our team is here to help you with any issues you might encounter.</p>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Your Name</label>
+                                <input type="text" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <select id="contactSubject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="billing">Billing Question</option>
+                                    <option value="feedback">Feedback/Suggestions</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <h2>Other Ways to Reach Us</h2>
+                    <p><strong>Email:</strong> support@claudconverter.com</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Business Hours:</strong> Monday-Friday, 9AM-5PM EST</p>
+                </div>
+            </div>
+        </div>
 
-    <footer>
-        <!-- Footer content remains the same as original -->
-    </footer>
+        <div id="faq-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Find quick answers to common questions about ClaudConverter Pro.</p>
+                    
+                    <h2>General Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">What is ClaudConverter Pro?</div>
+                        <p>ClaudConverter Pro is an all-in-one file conversion tool that allows you to convert between various file formats including documents, images, videos, audio files, and more.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is ClaudConverter Pro free to use?</div>
+                        <p>Yes! We offer free conversions with some limitations. For unlimited conversions and advanced features, you can upgrade to our Premium plan.</p>
+                    </div>
+                    
+                    <h2>File Conversion</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">What file formats do you support?</div>
+                        <p>We support over 100 file formats across documents, images, videos, audio, archives, and more. Visit our <a href="#" onclick="showSupportPage('help-center')">Help Center</a> for a complete list.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is there a file size limit?</div>
+                        <p>Free users can convert files up to 50MB. Premium users can convert files up to 2GB.</p>
+                    </div>
+                    
+                    <h2>Account & Billing</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">How do I cancel my subscription?</div>
+                        <p>You can cancel anytime from your account settings. Your subscription will remain active until the end of the current billing period.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is my payment information secure?</div>
+                        <p>Yes, we use industry-standard encryption and never store your full payment details on our servers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="privacy-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Privacy Policy</h1>
+                    <p>Last Updated: January 1, 2025</p>
+                    
+                    <h2>1. Information We Collect</h2>
+                    <p>We collect information you provide directly to us, such as when you create an account, use our services, or contact us for support. This may include:</p>
+                    <ul>
+                        <li>Contact information (name, email address)</li>
+                        <li>Account credentials</li>
+                        <li>Files you upload for conversion</li>
+                        <li>Payment information for premium services</li>
+                    </ul>
+                    
+                    <h2>2. How We Use Your Information</h2>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Provide, maintain, and improve our services</li>
+                        <li>Process transactions and send related information</li>
+                        <li>Respond to your comments, questions, and requests</li>
+                        <li>Monitor and analyze usage and trends</li>
+                    </ul>
+                    
+                    <h2>3. Data Security</h2>
+                    <p>We implement appropriate technical and organizational measures to protect your personal data. All file conversions are processed securely and files are automatically deleted after conversion.</p>
+                    
+                    <h2>4. Changes to This Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="terms-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Terms of Service</h1>
+                    <p>Last Updated: January 1, 2025</p>
+                    
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By accessing or using ClaudConverter Pro, you agree to be bound by these Terms of Service. If you do not agree, you may not use our services.</p>
+                    
+                    <h2>2. Description of Service</h2>
+                    <p>ClaudConverter Pro provides file conversion services through its website and applications. We reserve the right to modify or discontinue the service at any time.</p>
+                    
+                    <h2>3. User Responsibilities</h2>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Use the service for any illegal purpose</li>
+                        <li>Upload content that infringes on any intellectual property rights</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                        <li>Upload files containing viruses or malicious code</li>
+                    </ul>
+                    
+                    <h2>4. Limitation of Liability</h2>
+                    <p>ClaudConverter Pro shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of or inability to use the service.</p>
+                    
+                    <h2>5. Governing Law</h2>
+                    <p>These Terms shall be governed by the laws of the State of Delaware without regard to its conflict of law provisions.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>ClaudConverter Pro</h3>
+                        <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Home</a></li>
+                            <li><a href="#features" onclick="showHomePage()">Features</a></li>
+                            <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSupportPage('help-center')">Help Center</a></li>
+                            <li><a href="#" onclick="showSupportPage('contact')">Contact Us</a></li>
+                            <li><a href="#" onclick="showSupportPage('faq')">FAQ</a></li>
+                            <li><a href="#" onclick="showSupportPage('privacy')">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showSupportPage('terms')">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to get updates and special offers.</p>
+                        <form id="supportNewsletterForm">
+                            <input type="email" id="supportNewsletterEmail" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <!-- Conversion Modal -->
     <div class="modal" id="conversionModal">
@@ -173,6 +1198,380 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Converter data
+        const converters = {
+            video: {
+                title: "Video Converter",
+                formats: [
+                    {name: "MP4", value: "mp4", description: "MP4 Video File"},
+                    {name: "MOV to MP4", value: "mov-to-mp4", description: "Convert Apple MOV to MP4"},
+                    {name: "AVI to MP4", value: "avi-to-mp4", description: "Convert AVI to MP4"},
+                    {name: "Video to GIF", value: "video-to-gif", description: "Create GIF from video"},
+                    {name: "Video to MP3", value: "video-to-mp3", description: "Extract audio from video"},
+                    {name: "WEBM to MP4", value: "webm-to-mp4", description: "Convert WEBM to MP4"}
+                ],
+                hasQuality: true
+            },
+            audio: {
+                title: "Audio Converter",
+                formats: [
+                    {name: "MP3", value: "mp3", description: "MP3 Audio File"},
+                    {name: "WAV to MP3", value: "wav-to-mp3", description: "Convert WAV to MP3"},
+                    {name: "AAC to MP3", value: "aac-to-mp3", description: "Convert AAC to MP3"},
+                    {name: "OGG to MP3", value: "ogg-to-mp3", description: "Convert OGG to MP3"},
+                    {name: "M4A to MP3", value: "m4a-to-mp3", description: "Convert M4A to MP3"},
+                    {name: "FLAC to MP3", value: "flac-to-mp3", description: "Convert FLAC to MP3"}
+                ],
+                hasQuality: true
+            },
+            image: {
+                title: "Image Converter",
+                formats: [
+                    {name: "JPG", value: "jpg", description: "JPG Image File"},
+                    {name: "PNG to JPG", value: "png-to-jpg", description: "Convert PNG to JPG"},
+                    {name: "HEIC to JPG", value: "heic-to-jpg", description: "Convert HEIC to JPG"},
+                    {name: "JPG to PDF", value: "jpg-to-pdf", description: "Convert JPG to PDF"},
+                    {name: "Image to PDF", value: "image-to-pdf", description: "Combine images to PDF"},
+                    {name: "WEBP to JPG", value: "webp-to-jpg", description: "Convert WEBP to JPG"}
+                ],
+                hasQuality: false
+            },
+            document: {
+                title: "Document Converter",
+                formats: [
+                    {name: "PDF to Word", value: "pdf-to-word", description: "Convert PDF to DOCX"},
+                    {name: "Word to PDF", value: "word-to-pdf", description: "Convert DOCX to PDF"},
+                    {name: "Excel to PDF", value: "excel-to-pdf", description: "Convert XLSX to PDF"},
+                    {name: "EPUB to PDF", value: "epub-to-pdf", description: "Convert EPUB to PDF"},
+                    {name: "EPUB to MOBI", value: "epub-to-mobi", description: "Convert EPUB to MOBI"},
+                    {name: "PDF to TXT", value: "pdf-to-txt", description: "Extract text from PDF"}
+                ],
+                hasQuality: false
+            },
+            archive: {
+                title: "Archive Converter",
+                formats: [
+                    {name: "ZIP", value: "zip", description: "ZIP Archive"},
+                    {name: "RAR to ZIP", value: "rar-to-zip", description: "Convert RAR to ZIP"},
+                    {name: "7Z to ZIP", value: "7z-to-zip", description: "Convert 7Z to ZIP"},
+                    {name: "TAR to ZIP", value: "tar-to-zip", description: "Convert TAR to ZIP"},
+                    {name: "ZIP to RAR", value: "zip-to-rar", description: "Convert ZIP to RAR"},
+                    {name: "Extract Archive", value: "extract-archive", description: "Extract files from archive"}
+                ],
+                hasQuality: false
+            },
+            timezone: {
+                title: "Time Zone Converter",
+                formats: [
+                    {name: "PST to EST", value: "pst-to-est", description: "Convert Pacific to Eastern Time"},
+                    {name: "CST to EST", value: "cst-to-est", description: "Convert Central to Eastern Time"},
+                    {name: "EST to GMT", value: "est-to-gmt", description: "Convert Eastern to Greenwich Mean Time"},
+                    {name: "IST to EST", value: "ist-to-est", description: "Convert India to Eastern Time"},
+                    {name: "AEST to EST", value: "aest-to-est", description: "Convert Australian Eastern to Eastern Time"},
+                    {name: "Custom Time Zone", value: "custom-timezone", description: "Convert between any time zones"}
+                ],
+                hasQuality: false
+            },
+            unit: {
+                title: "Unit Converter",
+                formats: [
+                    {name: "Lbs to Kg", value: "lbs-to-kg", description: "Convert pounds to kilograms"},
+                    {name: "Kg to Lbs", value: "kg-to-lbs", description: "Convert kilograms to pounds"},
+                    {name: "Feet to Meters", value: "feet-to-meters", description: "Convert feet to meters"},
+                    {name: "Miles to Kilometers", value: "miles-to-km", description: "Convert miles to kilometers"},
+                    {name: "Fahrenheit to Celsius", value: "f-to-c", description: "Convert Fahrenheit to Celsius"},
+                    {name: "Custom Unit", value: "custom-unit", description: "Convert between any units"}
+                ],
+                hasQuality: false
+            },
+            bonus: {
+                title: "Bonus Tools",
+                formats: [
+                    {name: "Collage Maker", value: "collage-maker", description: "Combine multiple images into one"},
+                    {name: "Image Resizer", value: "image-resizer", description: "Resize images without quality loss"},
+                    {name: "Image Cropper", value: "image-cropper", description: "Crop images to desired dimensions"},
+                    {name: "Color Picker", value: "color-picker", description: "Extract HEX/RGB codes from images"},
+                    {name: "PDF Merger", value: "pdf-merger", description: "Combine multiple PDFs into one"},
+                    {name: "PDF Splitter", value: "pdf-splitter", description: "Split PDF into multiple files"}
+                ],
+                hasQuality: false
+            }
+        };
+
+        // Current files to convert
+        let filesToConvert = [];
+
+        // Show the selected converter interface
+        function showConverter(type) {
+            const converter = converters[type];
+            document.getElementById('converter-title').textContent = converter.title;
+            
+            // Populate format options
+            const formatSelect = document.getElementById('outputFormat');
+            formatSelect.innerHTML = '';
+            converter.formats.forEach(format => {
+                const option = document.createElement('option');
+                option.value = format.value;
+                option.textContent = format.name;
+                option.title = format.description;
+                formatSelect.appendChild(option);
+            });
+            
+            // Show/hide quality options
+            document.getElementById('qualityGroup').style.display = converter.hasQuality ? 'block' : 'none';
+            
+            // Show the converter interface
+            document.getElementById('converter-interface').style.display = 'block';
+            
+            // Scroll to the converter
+            document.getElementById('converter-interface').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show home page
+        function showHomePage() {
+            document.getElementById('app-container').style.display = 'block';
+            document.getElementById('support-container').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        // Show support page
+        function showSupportPage(page) {
+            document.getElementById('app-container').style.display = 'none';
+            document.getElementById('support-container').style.display = 'block';
+            
+            // Hide all support pages first
+            document.querySelectorAll('#support-container .support-page').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the requested page
+            document.getElementById(`${page}-page`).style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize drag and drop
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropArea = document.getElementById('dropArea');
+            const fileInput = document.getElementById('fileInput');
+            const imageDropArea = document.getElementById('imageDropArea');
+            const imageFileInput = document.getElementById('imageFileInput');
+            
+            // Prevent default drag behaviors
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+                imageDropArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            // Highlight drop area when item is dragged over it
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, highlight, false);
+                imageDropArea.addEventListener(eventName, function() {
+                    imageDropArea.classList.add('active');
+                }, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, unhighlight, false);
+                imageDropArea.addEventListener(eventName, function() {
+                    imageDropArea.classList.remove('active');
+                }, false);
+            });
+            
+            // Handle dropped files
+            dropArea.addEventListener('drop', handleDrop, false);
+            imageDropArea.addEventListener('drop', function(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    handleImageFiles({ target: { files } });
+                }
+            }, false);
+            
+            // Handle selected files
+            fileInput.addEventListener('change', handleFiles, false);
+            imageFileInput.addEventListener('change', handleImageFiles, false);
+            
+            // Convert button click
+            document.getElementById('convertBtn').addEventListener('click', startConversion);
+            
+            // Download button click
+            document.getElementById('downloadBtn').addEventListener('click', downloadFiles);
+            
+            // Newsletter form submission
+            document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('newsletterEmail').value;
+                alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                this.reset();
+            });
+            
+            // Support newsletter form submission
+            document.getElementById('supportNewsletterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('supportNewsletterEmail').value;
+                alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                this.reset();
+            });
+            
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! Our support team will get back to you soon.');
+                this.reset();
+            });
+            
+            // Check if there's a hash in the URL for support pages
+            if (window.location.hash) {
+                const page = window.location.hash.substring(1);
+                if (['help-center', 'contact', 'faq', 'privacy', 'terms'].includes(page)) {
+                    showSupportPage(page);
+                }
+            }
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        function highlight() {
+            document.getElementById('dropArea').classList.add('active');
+        }
+        
+        function unhighlight() {
+            document.getElementById('dropArea').classList.remove('active');
+        }
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles({ target: { files } });
+        }
+        
+        function handleFiles(e) {
+            const files = e.target.files;
+            filesToConvert = Array.from(files);
+            updateFileList();
+        }
+        
+        function handleImageFiles(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.size > 40 * 1024 * 1024) {
+                    alert('File size must be less than 40MB');
+                    return;
+                }
+                
+                if (!file.type.match('image.*')) {
+                    alert('Please select an image file (PNG, JPG, WebP)');
+                    return;
+                }
+                
+                // Show image converter interface
+                showConverter('image');
+                filesToConvert = [file];
+                updateFileList();
+            }
+        }
+        
+        function updateFileList() {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+            
+            if (filesToConvert.length === 0) {
+                return;
+            }
+            
+            filesToConvert.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                const fileInfo = document.createElement('div');
+                fileInfo.className = 'file-info';
+                
+                const fileIcon = document.createElement('i');
+                fileIcon.className = 'file-icon fas fa-file';
+                
+                const fileName = document.createElement('span');
+                fileName.textContent = file.name;
+                
+                fileInfo.appendChild(fileIcon);
+                fileInfo.appendChild(fileName);
+                
+                const fileActions = document.createElement('div');
+                fileActions.className = 'file-actions';
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                removeBtn.onclick = () => removeFile(index);
+                
+                fileActions.appendChild(removeBtn);
+                
+                fileItem.appendChild(fileInfo);
+                fileItem.appendChild(fileActions);
+                
+                fileList.appendChild(fileItem);
+            });
+        }
+        
+        function removeFile(index) {
+            filesToConvert.splice(index, 1);
+            updateFileList();
+        }
+        
+        function startConversion() {
+            if (filesToConvert.length === 0) {
+                alert('Please select at least one file to convert.');
+                return;
+            }
+            
+            const outputFormat = document.getElementById('outputFormat').value;
+            const quality = document.getElementById('qualityGroup').style.display === 'block' 
+                ? document.getElementById('quality').value 
+                : null;
+            
+            // Show modal
+            document.getElementById('conversionModal').style.display = 'flex';
+            document.getElementById('conversionStatus').textContent = 'Starting conversion...';
+            
+            // Simulate conversion progress
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress > 100) progress = 100;
+                document.getElementById('conversionProgress').style.width = progress + '%';
+                
+                if (progress < 30) {
+                    document.getElementById('conversionStatus').textContent = 'Uploading files...';
+                } else if (progress < 70) {
+                    document.getElementById('conversionStatus').textContent = 'Converting files...';
+                } else if (progress < 90) {
+                    document.getElementById('conversionStatus').textContent = 'Processing output...';
+                } else {
+                    document.getElementById('conversionStatus').textContent = 'Conversion complete!';
+                }
+                
+                if (progress === 100) {
+                    clearInterval(progressInterval);
+                    document.getElementById('downloadBtn').style.display = 'block';
+                }
+            }, 300);
+        }
+        
+        function closeModal() {
+            document.getElementById('conversionModal').style.display = 'none';
+            document.getElementById('conversionProgress').style.width = '0%';
+            document.getElementById('downloadBtn').style.display = 'none';
+        }
+        
+        function downloadFiles() {
+            // In a real app, this would download the actual converted files
+            // For this demo, we'll just show an alert
+            alert('Your converted files would download now. In a real application, this would trigger the download of the actual converted files.');
+            closeModal();
+        }
+    </script>
 </body>
 </html>
