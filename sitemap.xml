@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/index.html</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/blog.html</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/news.html</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Example Blog Posts (slugs from blog-posts.json) -->
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/blog.html?post=ultimate-guide-file-conversion</loc>
+    <lastmod>2024-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/blog.html?post=top-5-converter-features</loc>
+    <lastmod>2024-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Add more published blog posts here -->
+
+  <!-- Example News Articles (slugs from news-articles.json) -->
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/news.html?article=one-million-users-milestone</loc>
+    <lastmod>2024-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/news.html?article=new-ocr-feature</loc>
+    <lastmod>2024-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Add more published news articles here -->
+
+  <!-- Support Pages (anchors on index.html) -->
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/index.html#help-center</loc>
+    <lastmod>2024-07-30</lastmod> <!-- Assuming support content updates with site updates -->
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/index.html#contact</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/index.html#faq</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/index.html#privacy</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://claudconverter.com/claudconverter-pro/index.html#terms</loc>
+    <lastmod>2024-07-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

@@ -681,6 +681,8 @@
                     <ul>
                         <li><a href="#features" onclick="showHomePage()">Features</a></li>
                         <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="news.html">News</a></li>
                         <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
                         <li><a href="#" class="btn btn-outline">Premium</a></li>
                     </ul>
@@ -919,7 +921,8 @@
                             <li><a href="#features" onclick="showHomePage()">Features</a></li>
                             <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
                             <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="news.html">News</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -957,6 +960,8 @@
                     <ul>
                         <li><a href="#features" onclick="showHomePage()">Features</a></li>
                         <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="news.html">News</a></li>
                         <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
                         <li><a href="#" class="btn btn-outline">Premium</a></li>
                     </ul>
@@ -1156,7 +1161,8 @@
                             <li><a href="#features" onclick="showHomePage()">Features</a></li>
                             <li><a href="#converters" onclick="showHomePage()">Converters</a></li>
                             <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="news.html">News</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -1427,6 +1433,13 @@
                 if (['help-center', 'contact', 'faq', 'privacy', 'terms'].includes(page)) {
                     showSupportPage(page);
                 }
+            }
+
+            // Check for sessionStorage navigation hint
+            const navigateToSupportPage = sessionStorage.getItem('navigateToSupport');
+            if (navigateToSupportPage) {
+                showSupportPage(navigateToSupportPage);
+                sessionStorage.removeItem('navigateToSupport');
             }
         });
         

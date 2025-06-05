@@ -1,0 +1,44 @@
+[
+  {
+    "id": "bp001",
+    "title": "The Ultimate Guide to File Conversion",
+    "slug": "ultimate-guide-file-conversion",
+    "featured_image_url": "https://via.placeholder.com/800x400.png?text=Featured+Image+Blog+1",
+    "alt_text": "Abstract image representing file conversion",
+    "meta_title": "Ultimate Guide to File Conversion | ClaudConverter Pro",
+    "meta_description": "Learn everything you need to know about file conversion, formats, and best practices with ClaudConverter Pro.",
+    "content": "<p>Welcome to the ultimate guide to file conversion! In this post, we'll explore various aspects of converting files, from understanding different formats like PDF, JPG, PNG, MP4, and MP3, to best practices for ensuring quality and security.</p><h3>Why Convert Files?</h3><p>File conversion is essential for compatibility, reducing file size, or changing media types. Whether you're a student, professional, or casual user, ClaudConverter Pro makes it easy.</p><h3>Common Conversions:</h3><ul><li>PDF to Word</li><li>JPG to PNG</li><li>MP4 to GIF</li></ul><p>Stay tuned for more tips!</p>",
+    "author": "Alex Chen",
+    "publish_date": "2024-07-25T10:00:00Z",
+    "tags": ["file conversion", "guide", "tech tips", "productivity"],
+    "status": "published"
+  },
+  {
+    "id": "bp002",
+    "title": "Top 5 Time-Saving Converter Features",
+    "slug": "top-5-converter-features",
+    "featured_image_url": "https://via.placeholder.com/800x400.png?text=Featured+Image+Blog+2",
+    "alt_text": "Clock and gears symbolizing efficiency",
+    "meta_title": "Top 5 Time-Saving Converter Features | ClaudConverter Pro",
+    "meta_description": "Discover 5 features in ClaudConverter Pro that can save you significant time when dealing with file conversions.",
+    "content": "<p>In today's fast-paced world, every second counts. That's why we've built ClaudConverter Pro with features designed to streamline your workflow. Here are our top 5 time-savers:</p><ol><li>Batch Conversion: Convert multiple files at once.</li><li>Cloud Integration: Directly import from and save to cloud storage.</li><li>Preset Options: Quick settings for common conversion types.</li><li>Drag and Drop: Easy file uploading.</li><li>Mobile Accessibility: Convert on the go.</li></ol><p>Explore these features today and boost your productivity!</p>",
+    "author": "Maria Garcia",
+    "publish_date": "2024-07-28T14:30:00Z",
+    "tags": ["features", "productivity", "time saving", "claudconverter pro"],
+    "status": "published"
+  },
+  {
+    "id": "bp003",
+    "title": "Understanding Image Formats: JPG vs PNG vs WebP",
+    "slug": "image-formats-jpg-png-webp",
+    "featured_image_url": "https://via.placeholder.com/800x400.png?text=Featured+Image+Blog+3",
+    "alt_text": "Comparison of image format logos",
+    "meta_title": "JPG vs PNG vs WebP: Image Formats Explained | ClaudConverter Pro",
+    "meta_description": "A deep dive into the differences between JPG, PNG, and WebP image formats and when to use each for best results.",
+    "content": "<p>Choosing the right image format can be confusing. This post breaks down the key differences between JPG, PNG, and WebP...</p><h3>JPG (JPEG)</h3><p>Best for photographs, uses lossy compression.</p><h3>PNG</h3><p>Best for graphics with transparency, uses lossless compression.</p><h3>WebP</h3><p>Modern format offering both lossy and lossless compression, often smaller file sizes.</p><p>ClaudConverter Pro supports conversion between all these formats and more!</p>",
+    "author": "Alex Chen",
+    "publish_date": "2024-08-02T09:00:00Z",
+    "tags": ["images", "jpg", "png", "webp", "guide"],
+    "status": "draft"
+  }
+]
