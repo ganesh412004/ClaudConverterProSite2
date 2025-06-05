@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - ClaudConverter Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Main App Container -->
+    <div id="app-container">
+        <header>
+            <div class="container header-content">
+                <a href="index.html" class="logo">Claud<span>Converter</span> Pro</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#converters">Converters</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
+                        <li><a href="#" class="btn btn-outline">Premium</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="support-page" style="padding-top: 20px; padding-bottom: 20px; min-height: auto;">
+            <div class="container">
+                <div class="support-content">
+                    <h1 style="text-align: center; margin-bottom: 40px;">ClaudConverter Pro Blog</h1>
+
+                    <article class="faq-item" style="background-color: #f9f9f9; padding: 20px; border-radius: var(--border-radius); margin-bottom: 30px;">
+                        <h2 class="faq-question" style="font-size: 24px; color: var(--primary-color);">New Feature: Batch Image Conversion</h2>
+                        <p style="font-size: 14px; color: #777; margin-bottom: 10px;">Published on: October 26, 2023 by Jane Doe</p>
+                        <p>We're excited to announce that batch image conversion is now live! Convert hundreds of images at once with our new intuitive interface. This feature supports JPG, PNG, WebP, and HEIC formats, making your workflow more efficient than ever. Check it out on our Image Converter page!</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px; font-size: 14px;">Read More</a>
+                    </article>
+
+                    <article class="faq-item" style="background-color: #f9f9f9; padding: 20px; border-radius: var(--border-radius); margin-bottom: 30px;">
+                        <h2 class="faq-question" style="font-size: 24px; color: var(--primary-color);">Understanding Video Codecs: A Beginner's Guide</h2>
+                        <p style="font-size: 14px; color: #777; margin-bottom: 10px;">Published on: October 20, 2023 by John Smith</p>
+                        <p>Ever wondered what MP4, AVI, or MOV really means? Our latest blog post dives into the world of video codecs, explaining the basics in simple terms. Learn how different codecs affect file size and quality, and choose the best format for your needs.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px; font-size: 14px;">Read More</a>
+                    </article>
+
+                    <article class="faq-item" style="background-color: #f9f9f9; padding: 20px; border-radius: var(--border-radius); margin-bottom: 30px;">
+                        <h2 class="faq-question" style="font-size: 24px; color: var(--primary-color);">Top 5 Tips for Secure File Conversion</h2>
+                        <p style="font-size: 14px; color: #777; margin-bottom: 10px;">Published on: October 15, 2023 by Alex Green</p>
+                        <p>Your privacy and security are our top priorities. In this post, we share five essential tips to ensure your files are handled safely during any online conversion process. From using HTTPS to understanding file deletion policies, empower yourself with knowledge.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px; font-size: 14px;">Read More</a>
+                    </article>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <p>Want to contribute to our blog? We're always looking for guest writers!</p>
+                        <a href="mailto:blog@claudconverter.com?subject=Blog Post Submission" class="btn">Submit a Blog Post</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>ClaudConverter Pro</h3>
+                        <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#converters">Converters</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="news.html">News</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSupportPage('help-center')">Help Center</a></li>
+                            <li><a href="#" onclick="showSupportPage('contact')">Contact Us</a></li>
+                            <li><a href="#" onclick="showSupportPage('faq')">FAQ</a></li>
+                            <li><a href="#" onclick="showSupportPage('privacy')">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showSupportPage('terms')">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to get updates and special offers.</p>
+                        <form id="newsletterForm">
+                            <input type="email" id="newsletterEmail" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Support Pages Container (initially hidden) -->
+    <div id="support-container" style="display: none;">
+        <header>
+            <div class="container header-content">
+                <a href="index.html" class="logo">Claud<span>Converter</span> Pro</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#converters">Converters</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="#" onclick="showSupportPage('help-center')">Support</a></li>
+                        <li><a href="#" class="btn btn-outline">Premium</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="help-center-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Help Center</h1>
+                    <p>Welcome to the ClaudConverter Pro Help Center. Here you'll find answers to common questions and resources to help you get the most out of our service.</p>
+
+                    <h2>Getting Started</h2>
+                    <p>Learn how to use ClaudConverter Pro with our step-by-step guides:</p>
+                    <ul>
+                        <li><a href="#" onclick="showSupportPage('faq')">How to convert files</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Supported file formats</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Managing your account</a></li>
+                    </ul>
+
+                    <h2>Troubleshooting</h2>
+                    <p>Having issues with our service? Check these resources:</p>
+                    <ul>
+                        <li><a href="#" onclick="showSupportPage('faq')">File conversion errors</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Upload problems</a></li>
+                        <li><a href="#" onclick="showSupportPage('faq')">Download issues</a></li>
+                    </ul>
+
+                    <h2>Need More Help?</h2>
+                    <p>If you can't find what you're looking for, please <a href="#" onclick="showSupportPage('contact')">contact our support team</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Contact Us</h1>
+                    <p>Have questions or need assistance? Our team is here to help you with any issues you might encounter.</p>
+
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Your Name</label>
+                                <input type="text" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <select id="contactSubject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="billing">Billing Question</option>
+                                    <option value="feedback">Feedback/Suggestions</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+
+                    <h2>Other Ways to Reach Us</h2>
+                    <p><strong>Email:</strong> support@claudconverter.com</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Business Hours:</strong> Monday-Friday, 9AM-5PM EST</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="faq-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Find quick answers to common questions about ClaudConverter Pro.</p>
+
+                    <h2>General Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">What is ClaudConverter Pro?</div>
+                        <p>ClaudConverter Pro is an all-in-one file conversion tool that allows you to convert between various file formats including documents, images, videos, audio files, and more.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is ClaudConverter Pro free to use?</div>
+                        <p>Yes! We offer free conversions with some limitations. For unlimited conversions and advanced features, you can upgrade to our Premium plan.</p>
+                    </div>
+
+                    <h2>File Conversion</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">What file formats do you support?</div>
+                        <p>We support over 100 file formats across documents, images, videos, audio, archives, and more. Visit our <a href="#" onclick="showSupportPage('help-center')">Help Center</a> for a complete list.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is there a file size limit?</div>
+                        <p>Free users can convert files up to 50MB. Premium users can convert files up to 2GB.</p>
+                    </div>
+
+                    <h2>Account & Billing</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">How do I cancel my subscription?</div>
+                        <p>You can cancel anytime from your account settings. Your subscription will remain active until the end of the current billing period.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is my payment information secure?</div>
+                        <p>Yes, we use industry-standard encryption and never store your full payment details on our servers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="privacy-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Privacy Policy</h1>
+                    <p>Last Updated: January 1, 2025</p>
+
+                    <h2>1. Information We Collect</h2>
+                    <p>We collect information you provide directly to us, such as when you create an account, use our services, or contact us for support. This may include:</p>
+                    <ul>
+                        <li>Contact information (name, email address)</li>
+                        <li>Account credentials</li>
+                        <li>Files you upload for conversion</li>
+                        <li>Payment information for premium services</li>
+                    </ul>
+
+                    <h2>2. How We Use Your Information</h2>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Provide, maintain, and improve our services</li>
+                        <li>Process transactions and send related information</li>
+                        <li>Respond to your comments, questions, and requests</li>
+                        <li>Monitor and analyze usage and trends</li>
+                    </ul>
+
+                    <h2>3. Data Security</h2>
+                    <p>We implement appropriate technical and organizational measures to protect your personal data. All file conversions are processed securely and files are automatically deleted after conversion.</p>
+
+                    <h2>4. Changes to This Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="terms-page" class="support-page" style="display: none;">
+            <div class="container">
+                <div class="support-content">
+                    <h1>Terms of Service</h1>
+                    <p>Last Updated: January 1, 2025</p>
+
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By accessing or using ClaudConverter Pro, you agree to be bound by these Terms of Service. If you do not agree, you may not use our services.</p>
+
+                    <h2>2. Description of Service</h2>
+                    <p>ClaudConverter Pro provides file conversion services through its website and applications. We reserve the right to modify or discontinue the service at any time.</p>
+
+                    <h2>3. User Responsibilities</h2>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Use the service for any illegal purpose</li>
+                        <li>Upload content that infringes on any intellectual property rights</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                        <li>Upload files containing viruses or malicious code</li>
+                    </ul>
+
+                    <h2>4. Limitation of Liability</h2>
+                    <p>ClaudConverter Pro shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of or inability to use the service.</p>
+
+                    <h2>5. Governing Law</h2>
+                    <p>These Terms shall be governed by the laws of the State of Delaware without regard to its conflict of law provisions.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>ClaudConverter Pro</h3>
+                        <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#converters">Converters</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="news.html">News</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSupportPage('help-center')">Help Center</a></li>
+                            <li><a href="#" onclick="showSupportPage('contact')">Contact Us</a></li>
+                            <li><a href="#" onclick="showSupportPage('faq')">FAQ</a></li>
+                            <li><a href="#" onclick="showSupportPage('privacy')">Privacy Policy</a></li>
+                            <li><a href="#" onclick="showSupportPage('terms')">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to get updates and special offers.</p>
+                        <form id="supportNewsletterForm">
+                            <input type="email" id="supportNewsletterEmail" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Conversion Modal -->
+    <div class="modal" id="conversionModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Converting Your Files</h2>
+            <p id="conversionStatus">Preparing files for conversion...</p>
+            <div class="progress-bar">
+                <div class="progress" id="conversionProgress"></div>
+            </div>
+            <button class="btn download-btn" id="downloadBtn" style="display: none;">Download Converted Files</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

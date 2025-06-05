@@ -514,6 +514,49 @@ footer {
     }
 }
 
+/* Blog and News Page Specific Styles */
+
+.blog-posts-area {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.blog-post-item {
+    background-color: #fff; /* White background for each post item */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    border: 1px solid #e0e0e0; /* Light border */
+}
+
+.blog-post-item h2 {
+    color: var(--primary-color); /* Use primary color for post titles */
+    margin-bottom: 8px;
+}
+
+.blog-post-item .post-meta {
+    font-size: 0.85em;
+    color: #777; /* Lighter color for meta text */
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.blog-post-item p {
+    margin-bottom: 15px; /* Spacing for paragraphs within posts */
+    line-height: 1.7; /* Improved readability for post content */
+}
+
+.blog-post-item .btn-outline { /* Style for "Read More" button */
+    margin-top: 10px;
+    font-weight: 600; /* Make "Read More" slightly bolder */
+}
+
+/* Ensure the main submit button is spaced nicely */
+.support-content > .btn {
+    margin-top: 20px; /* Add some space above the main submit button */
+}
+
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 28px;
