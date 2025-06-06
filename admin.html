@@ -1,280 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Admin - ClaudConverter Pro</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Basic Admin Page Styles */
-        body {
-            background-color: #f4f7f6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        .admin-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 25px;
-            border-radius: var(--border-radius, 8px);
-            box-shadow: var(--box-shadow, 0 4px 6px rgba(0,0,0,0.1));
-        }
-        h1, h2 {
-            color: var(--primary-color, #4361ee);
-            margin-bottom: 20px;
-        }
-        nav.admin-nav {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        nav.admin-nav button {
-            background-color: var(--primary-color, #4361ee);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: var(--border-radius, 8px);
-            cursor: pointer;
-            margin-right: 10px;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        nav.admin-nav button:hover {
-            background-color: var(--secondary-color, #3f37c9);
-        }
-        nav.admin-nav button.active {
-            background-color: var(--accent-color, #4895ef);
-        }
-
-        .form-section {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius, 8px);
-            background-color: #fdfdfd;
-        }
-        .form-section label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #555;
-        }
-        .form-section input[type="text"],
-        .form-section input[type="url"],
-        .form-section input[type="date"],
-        .form-section select,
-        .form-section textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: var(--border-radius, 8px);
-            box-sizing: border-box;
-            font-size: 15px;
-        }
-        .form-section textarea {
-            min-height: 150px;
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-        }
-        .form-section .generate-json-btn {
-            background-color: var(--success-color, #4cc9f0);
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: var(--border-radius, 8px);
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .form-section .generate-json-btn:hover {
-            background-color: #30a9d1; /* Darker shade of success */
-        }
-        .form-section small {
-            display: block;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            color: #777;
-            font-size: 0.85em;
-        }
-
-        #generated-json-output {
-            width: 100%;
-            min-height: 200px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: var(--border-radius, 8px);
-            box-sizing: border-box;
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-            background-color: #e9ecef;
-            color: #333;
-            white-space: pre;
-            overflow-x: auto;
-        }
-        .instructions {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #fff3cd; /* Light yellow */
-            border: 1px solid #ffeeba; /* Yellow border */
-            color: #856404; /* Dark yellow text */
-            border-radius: var(--border-radius, 8px);
-        }
-    </style>
+    <!-- Same head as index.html with admin title -->
+    <title>File Converter Admin</title>
 </head>
 <body>
-    <div class="admin-container">
-        <h1>Content Admin</h1>
-
-        <nav class="admin-nav">
-            <button id="show-blog-form-btn" class="active">Blog Posts</button>
-            <button id="show-news-form-btn">News Articles</button>
-        </nav>
-
-        <!-- Blog Post Form -->
-        <section id="blog-form-section" class="form-section">
-            <h2>Add/Edit Blog Post</h2>
-            <form id="blog-form">
-                <div>
-                    <label for="blog-id">ID:</label>
-                    <input type="text" id="blog-id" name="id" required>
-                    <small>Unique identifier (e.g., bp004). Avoid spaces or special characters.</small>
+    <!-- Same header as index.html -->
+    
+    <section class="admin-panel">
+        <div class="container">
+            <div class="admin-header">
+                <h1>Content Management</h1>
+                <a href="/" class="btn">Back to Site</a>
+            </div>
+            
+            <div class="admin-actions">
+                <button class="btn" onclick="showEditor('blog')">Add Blog Post</button>
+                <button class="btn" onclick="showEditor('news')">Add News Item</button>
+            </div>
+            
+            <div id="editorContainer" style="display: none;">
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label for="postTitle">Title</label>
+                        <input type="text" id="postTitle" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postType">Type</label>
+                        <select id="postType" class="form-control">
+                            <option value="blog">Blog Post</option>
+                            <option value="news">News Item</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postCategory">Category</label>
+                        <input type="text" id="postCategory" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postImage">Featured Image</label>
+                        <input type="file" id="postImage" class="form-control">
+                        <img id="imagePreview" class="image-preview">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postExcerpt">Excerpt</label>
+                        <textarea id="postExcerpt" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent" class="form-control" rows="10"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postMetaTitle">Meta Title</label>
+                        <input type="text" id="postMetaTitle" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postMetaDesc">Meta Description</label>
+                        <textarea id="postMetaDesc" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postStatus">Status</label>
+                        <select id="postStatus" class="form-control">
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn convert-btn" onclick="savePost()">Save Post</button>
                 </div>
-                <div>
-                    <label for="blog-title">Title:</label>
-                    <input type="text" id="blog-title" name="title" required>
-                </div>
-                <div>
-                    <label for="blog-slug">Slug:</label>
-                    <input type="text" id="blog-slug" name="slug">
-                    <small>URL-friendly version of the title. Auto-generated, can be manually adjusted.</small>
-                </div>
-                <div>
-                    <label for="blog-featured-image-url">Featured Image URL:</label>
-                    <input type="url" id="blog-featured-image-url" name="featured_image_url">
-                </div>
-                <div>
-                    <label for="blog-alt-text">Alt Text for Image:</label>
-                    <input type="text" id="blog-alt-text" name="alt_text">
-                </div>
-                <div>
-                    <label for="blog-meta-title">Meta Title:</label>
-                    <input type="text" id="blog-meta-title" name="meta_title">
-                </div>
-                <div>
-                    <label for="blog-meta-description">Meta Description:</label>
-                    <textarea id="blog-meta-description" name="meta_description" rows="3"></textarea>
-                </div>
-                <div>
-                    <label for="blog-author">Author:</label>
-                    <input type="text" id="blog-author" name="author">
-                </div>
-                <div>
-                    <label for="blog-publish-date">Publish Date:</label>
-                    <input type="date" id="blog-publish-date" name="publish_date">
-                </div>
-                <div>
-                    <label for="blog-tags">Tags (comma-separated):</label>
-                    <input type="text" id="blog-tags" name="tags">
-                </div>
-                <div>
-                    <label for="blog-status">Status:</label>
-                    <select id="blog-status" name="status">
-                        <option value="published">Published</option>
-                        <option value="draft">Draft</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="blog-content">Content (HTML):</label>
-                    <textarea id="blog-content" name="content" rows="10"></textarea>
-                    <small>Enter content using HTML tags for formatting (e.g., &lt;p&gt;, &lt;h3&gt;, &lt;ul&gt;).</small>
-                </div>
-                <button type="button" id="generate-blog-json-btn" class="generate-json-btn">Generate Blog JSON</button>
-            </form>
-        </section>
-
-        <!-- News Article Form (initially hidden) -->
-        <section id="news-form-section" class="form-section" style="display: none;">
-            <h2>Add/Edit News Article</h2>
-            <form id="news-form">
-                <div>
-                    <label for="news-id">ID:</label>
-                    <input type="text" id="news-id" name="id" required>
-                    <small>Unique identifier (e.g., na004).</small>
-                </div>
-                <div>
-                    <label for="news-title">Title:</label>
-                    <input type="text" id="news-title" name="title" required>
-                </div>
-                <div>
-                    <label for="news-slug">Slug:</label>
-                    <input type="text" id="news-slug" name="slug">
-                    <small>URL-friendly version of the title. Auto-generated.</small>
-                </div>
-                 <div>
-                    <label for="news-meta-title">Meta Title:</label>
-                    <input type="text" id="news-meta-title" name="meta_title">
-                </div>
-                <div>
-                    <label for="news-meta-description">Meta Description:</label>
-                    <textarea id="news-meta-description" name="meta_description" rows="3"></textarea>
-                </div>
-                <div>
-                    <label for="news-publish-date">Publish Date:</label>
-                    <input type="date" id="news-publish-date" name="publish_date">
-                </div>
-                <div>
-                    <label for="news-category">Category:</label>
-                    <select id="news-category" name="category">
-                        <option value="Updates">Updates</option>
-                        <option value="Announcements">Announcements</option>
-                        <option value="Industry">Industry</option>
-                    </select>
-                </div>
-                 <div>
-                    <label for="news-status">Status:</label>
-                    <select id="news-status" name="status">
-                        <option value="published">Published</option>
-                        <option value="draft">Draft</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="news-content">Content (HTML):</label>
-                    <textarea id="news-content" name="content" rows="10"></textarea>
-                    <small>Enter content using HTML tags.</small>
-                </div>
-                <button type="button" id="generate-news-json-btn" class="generate-json-btn">Generate News JSON</button>
-            </form>
-        </section>
-
-        <h2>Generated JSON Output</h2>
-        <textarea id="generated-json-output" readonly rows="15"></textarea>
-        <div class="instructions">
-            <p><strong>Instructions:</strong></p>
-            <ol>
-                <li>Fill out the form for either a blog post or a news article.</li>
-                <li>Click the "Generate ... JSON" button.</li>
-                <li>Copy the entire content from the "Generated JSON Output" textarea above.</li>
-                <li>
-                    Open the respective JSON file in your project:
-                    <ul>
-                        <li>For blog posts: `claudconverter-pro/data/blog-posts.json`</li>
-                        <li>For news articles: `claudconverter-pro/data/news-articles.json`</li>
-                    </ul>
-                </li>
-                <li>
-                    These files contain a JSON array (starts with `[` and ends with `]`).
-                    <ul>
-                        <li><strong>To add a new item:</strong> Paste the copied JSON object inside the array. If the array is not empty, add a comma (`,`) after the preceding object before pasting. Ensure the new object is also followed by a comma if it's not the last item in the array.</li>
-                        <li><strong>To update an existing item:</strong> Find the object in the array that has the same `id` as the one you are updating. Replace that entire object (from its opening `{` to its closing `}`) with the copied JSON.</li>
-                    </ul>
-                </li>
-                <li>Save the JSON file. The changes should reflect on your blog/news pages after a page refresh (assuming the site is re-fetching the JSON).</li>
-            </ol>
+            </div>
+            
+            <div id="contentList">
+                <!-- List of existing posts will be shown here -->
+            </div>
         </div>
-    </div>
-
-    <script src="js/admin.js"></script>
+    </section>
+    
+    <script>
+        // Admin functionality
+        function showEditor(type) {
+            document.getElementById('editorContainer').style.display = 'block';
+            document.getElementById('postType').value = type;
+            document.getElementById('contentList').style.display = 'none';
+        }
+        
+        function savePost() {
+            // In a real implementation, this would save to localStorage or IndexedDB
+            alert('Post saved! (In a real implementation, this would save to storage)');
+        }
+        
+        // Image preview
+        document.getElementById('postImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>
