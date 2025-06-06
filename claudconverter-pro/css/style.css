@@ -606,7 +606,7 @@ footer {
     margin-bottom: 10px;
 }
 
-.blog-post-item p:not(.publish-date),
+.blog-post-item p:not(.publish-date), 
 .news-article-item p:not(.publish-date):not(.news-category) {
     font-size: 15px;
     color: #333;
