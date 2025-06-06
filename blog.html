@@ -1,103 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Use same head content as index.html but update title and description -->
-    <title>File Converter Blog - Tips & Tutorials on File Conversion</title>
-    <meta name="description" content="Learn about file conversion, optimization techniques and productivity tips from the File Converter Pro team.">
-    
-    <!-- Schema.org markup for blog -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "headline": "File Converter Blog",
-      "description": "Tips & Tutorials on File Conversion",
-      "publisher": {
-        "@type": "Organization",
-        "name": "File Converter Pro",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://yourdomain.com/logo.png"
+    <!-- Use the same head content as your index.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="File Converter Pro Blog - Tips, tricks and news about file conversion">
+    <title>Blog | File Converter Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Copy all the CSS from your index.html */
+        :root {
+            --primary-color: #4361ee;
+            /* ... rest of your CSS variables ... */
         }
-      }
-    }
-    </script>
+
+        * {
+            /* ... rest of your global styles ... */
+        }
+
+        /* Add some blog-specific styles */
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-header p {
+            color: #666;
+            font-size: 1.125rem;
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .blog-post {
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .post-meta i {
+            color: var(--primary-color);
+        }
+
+        .blog-post h2 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .blog-post p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Same header as index.html -->
-    
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                <span>File<span>Converter</span> Pro</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <section class="blog-container">
-        <div class="container">
-            <div class="section-title">
-                <h1>File Converter Blog</h1>
-                <p>Tips, tutorials and insights about file conversion and optimization</p>
-            </div>
+        <div class="blog-header">
+            <h1>File Converter Pro Blog</h1>
+            <p>Tips, tricks and news about file conversion and optimization</p>
+        </div>
+        
+        <div class="blog-posts">
+            <!-- Blog Post 1 -->
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                </div>
+                <h2>How to Choose the Right File Format for Your Needs</h2>
+                <p>Choosing the right file format can make a big difference in quality, file size, and compatibility. In this post, we'll explore the pros and cons of common formats for images, documents, and more.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
             
-            <div class="breadcrumbs">
-                <a href="/">Home</a>
-                <span>/</span>
-                <span>Blog</span>
-            </div>
+            <!-- Blog Post 2 -->
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> May 28, 2023</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                </div>
+                <h2>5 Ways to Reduce PDF File Size Without Losing Quality</h2>
+                <p>Large PDF files can be difficult to share and store. Learn professional techniques to compress your PDFs while maintaining readability and visual quality.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
             
-            <div class="articles-grid" id="blogPosts">
-                <!-- Blog posts will be loaded here by JavaScript -->
-            </div>
+            <!-- Blog Post 3 -->
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> April 10, 2023</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                </div>
+                <h2>Image Format Comparison: JPEG vs PNG vs WebP</h2>
+                <p>Not sure which image format to use? We compare the most popular formats to help you decide which one is best for your specific use case.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
+            
+            <!-- Blog Post 4 -->
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> March 22, 2023</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                </div>
+                <h2>How to Convert Scanned Documents to Editable Text</h2>
+                <p>Learn how to use OCR (Optical Character Recognition) technology to convert scanned PDFs and images into editable and searchable documents.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
         </div>
     </section>
-    
-    <!-- Same footer as index.html -->
-    
-    <script>
-        // Blog posts data
-        const blogPosts = [
-            {
-                id: 1,
-                title: "How to Optimize PDFs for Web",
-                excerpt: "Learn the best techniques to reduce PDF file size while maintaining quality for web publishing.",
-                image: "https://via.placeholder.com/600x400",
-                date: "2023-06-15",
-                author: "Jane Smith",
-                category: "Tutorial",
-                url: "/blog/how-to-optimize-pdfs-for-web"
-            },
-            {
-                id: 2,
-                title: "Image Format Comparison: WebP vs JPEG vs PNG",
-                excerpt: "A detailed comparison of modern image formats to help you choose the best one for your needs.",
-                image: "https://via.placeholder.com/600x400",
-                date: "2023-06-10",
-                author: "John Doe",
-                category: "Guide",
-                url: "/blog/image-format-comparison"
-            },
-            // Add more posts as needed
-        ];
 
-        // Load blog posts
-        document.addEventListener('DOMContentLoaded', function() {
-            const blogContainer = document.getElementById('blogPosts');
-            
-            blogPosts.forEach(post => {
-                const postElement = document.createElement('article');
-                postElement.className = 'article-card';
-                postElement.innerHTML = `
-                    <a href="${post.url}">
-                        <img src="${post.image}" alt="${post.title}" class="article-image" loading="lazy">
-                        <div class="article-content">
-                            <span class="article-tag">${post.category}</span>
-                            <h3>${post.title}</h3>
-                            <p class="article-excerpt">${post.excerpt}</p>
-                            <div class="article-meta">
-                                <span>By ${post.author}</span>
-                                <span>${new Date(post.date).toLocaleDateString()}</span>
-                            </div>
-                            <a href="${post.url}" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </a>
-                `;
-                blogContainer.appendChild(postElement);
-            });
-        });
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>File Converter Pro</h3>
+                    <p>All-in-one solution for file conversion, optimization, merging and more.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#tools">Tools</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 File Converter Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // You can add any blog-specific JavaScript here if needed
     </script>
 </body>
 </html>
