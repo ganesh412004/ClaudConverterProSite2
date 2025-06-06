@@ -514,28 +514,256 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
-    .hero h1 {
+/* Blog and News Page Styles */
+
+/* General Page Layout for Blog/News */
+.main-content-area { /* Renamed from support-page for clarity if used elsewhere */
+    padding: 40px 0; /* Reduced padding compared to hero */
+    min-height: 60vh;
+}
+
+.content-wrapper { /* Renamed from support-content for clarity */
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.breadcrumb-item {
+    margin-right: 5px;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d; /* Bootstrap's default active color */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    margin-right: 5px;
+    color: #6c757d;
+}
+
+/* Article Listing (Blog & News) */
+.blog-list, .news-list {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-post-item, .news-article-item {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-item:hover, .news-article-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.blog-post-item h3, .news-article-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.blog-post-item h3 a, .news-article-item h3 a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.blog-post-item h3 a:hover, .news-article-item h3 a:hover {
+    color: var(--primary-color);
+}
+
+.publish-date, .news-category {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.blog-post-item p:not(.publish-date), 
+.news-article-item p:not(.publish-date):not(.news-category) {
+    font-size: 15px;
+    color: #333;
+    flex-grow: 1; /* Ensures excerpt takes available space */
+    margin-bottom: 15px;
+}
+
+.btn-read-more {
+    align-self: flex-start; /* Aligns button to the left */
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+
+/* Single Article (Blog Post / News Article) */
+.sample-blog-article, .sample-news-article { /* Using existing IDs for now, can be class .article-full-content */
+    margin-top: 30px;
+}
+
+.sample-blog-article h2, .sample-news-article h2 { /* Article Title */
+    font-size: 32px;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.featured-image-placeholder img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px; /* Space between image and caption */
+}
+.featured-image-placeholder figcaption {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.author-info {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.author-info strong {
+    color: var(--dark-color);
+}
+.author-info p {
+    margin-bottom: 5px;
+}
+
+/* Article Body */
+.sample-blog-article p, .sample-news-article p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #333; /* Slightly darker for better readability */
+}
+.sample-blog-article p:not(.publish-date):not(.news-category),
+.sample-news-article p:not(.publish-date):not(.news-category) {
+    font-size: 16px; /* Standard paragraph text */
+}
+
+
+/* Social Sharing */
+.social-sharing-placeholder {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+.social-sharing-placeholder h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.social-sharing-placeholder a i {
+    font-size: 28px;
+    margin: 0 12px;
+    color: var(--secondary-color);
+    transition: var(--transition);
+}
+.social-sharing-placeholder a:hover i {
+    color: var(--primary-color);
+}
+
+/* Related Posts / News */
+.related-posts-placeholder, .related-news-placeholder {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.related-posts-placeholder h3, .related-news-placeholder h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.related-posts-placeholder ul, .related-news-placeholder ul {
+    list-style: none;
+    padding-left: 0;
+}
+.related-posts-placeholder ul li, .related-news-placeholder ul li {
+    margin-bottom: 10px;
+}
+.related-posts-placeholder ul li a, .related-news-placeholder ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 16px;
+}
+.related-posts-placeholder ul li a:hover, .related-news-placeholder ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Comments Section Placeholder */
+.disqus-comments-placeholder {
+    margin-top: 40px;
+    padding: 30px 20px;
+    border: 2px dashed #ccc;
+    border-radius: var(--border-radius);
+    text-align: center;
+    background-color: var(--light-color);
+}
+.disqus-comments-placeholder h3 {
+    margin-bottom: 15px;
+}
+.disqus-comments-placeholder p {
+    font-style: italic;
+    color: #666;
+}
+
+/* News Categories Specific */
+.news-category { /* Already styled above, can add more specific if needed */
+    font-weight: bold;
+}
+.news-category strong {
+    color: var(--accent-color);
+}
+
+/* Responsive Adjustments for Blog/News */
+@media (max-width: 768px) {
+    .blog-list, .news-list {
+        grid-template-columns: 1fr; /* Stack articles on smaller screens */
+    }
+
+    .sample-blog-article h2, .sample-news-article h2 {
         font-size: 28px;
     }
+}
 
-    .hero p {
-        font-size: 16px;
-    }
-
-    .section-title h2 {
-        font-size: 24px;
-    }
-
-    .converter-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .drop-area {
+@media (max-width: 480px) {
+    .content-wrapper { /* from support-content */
         padding: 20px;
     }
-    
-    .drop-area h3 {
-        font-size: 18px;
+    .sample-blog-article h2, .sample-news-article h2 {
+        font-size: 24px;
+    }
+    .social-sharing-placeholder a i {
+        font-size: 24px;
+        margin: 0 8px;
     }
 }
