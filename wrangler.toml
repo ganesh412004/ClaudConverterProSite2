@@ -4,10 +4,5 @@ account_id = "54627add21702edb887b738d4fa1b1533b8f0"  # Replace with your actual
 workers_dev = true
 
 [build]
-command = "npm run build"  # Add this line if you have a build process
-publish = "."  # Set to "." or your build output directory
-
-[vars]
-CLOUDFLARE_API_TOKEN = "54627add21702edb887b738d4fa1b1533b8f0"
-command = "npm run build"
-publish = "."
+command = "./build.sh"
+publish = "public"
