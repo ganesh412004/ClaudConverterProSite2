@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Placeholder for Meta Title/Description -->
+    <title>News - ClaudConverter Pro</title>
+    <meta name="description" content="Latest news and announcements from ClaudConverter Pro.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Placeholder for Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sample News Article Title",
+      "image": [
+        "https://via.placeholder.com/800x400.png?text=News+Featured+Image"
+       ],
+      "datePublished": "2024-07-28T08:00:00+00:00",
+      "dateModified": "2024-07-28T09:20:00+00:00",
+      "author": {
+        "@type": "Person",
+        "name": "News Author"
+      },
+       "publisher": {
+          "@type": "Organization",
+          "name": "ClaudConverter Pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://claudconverter.com/logo.png" 
+          }
+        },
+      "description": "A brief description of the sample news article."
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Claud<span>Converter</span> Pro</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#converters">Converters</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="index.html" onclick="sessionStorage.setItem('navigateToSupport', 'help-center');">Support</a></li>
+                    <li><a href="#" class="btn btn-outline">Premium</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container support-page">
+        <div class="support-content">
+            <!-- Breadcrumb -->
+            <nav id="breadcrumb-container" aria-label="breadcrumb">
+                <!-- Breadcrumbs will be rendered here by JavaScript -->
+            </nav>
+
+            <h1>News</h1>
+
+            <!-- Dynamic content area -->
+            <div id="news-content-area">
+                <!-- News articles or single article will be rendered here by JavaScript -->
+                <p>Loading news content...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ClaudConverter Pro</h3>
+                    <p>Your all-in-one solution for fast, secure file conversions across multiple formats.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#converters">Converters</a></li>
+                        <li><a href="#">Pricing</a></li> {/* Assuming a future pricing.html or similar */}
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="index.html" onclick="sessionStorage.setItem('navigateToSupport', 'help-center');">Help Center</a></li>
+                        <li><a href="index.html" onclick="sessionStorage.setItem('navigateToSupport', 'contact');">Contact Us</a></li>
+                        <li><a href="index.html" onclick="sessionStorage.setItem('navigateToSupport', 'faq');">FAQ</a></li>
+                        <li><a href="index.html" onclick="sessionStorage.setItem('navigateToSupport', 'privacy');">Privacy Policy</a></li>
+                        <li><a href="index.html" onclick="sessionStorage.setItem('navigateToSupport', 'terms');">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates and special offers.</p>
+                    <form id="newsletterFormNews">
+                        <input type="email" id="newsletterEmailNews" placeholder="Your email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023-2025 ClaudConverter Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/content.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initNewsPage);
+
+        // Dummy showSupportPage function (similar to blog.html)
+        if (typeof showSupportPage !== 'function' && window.location.pathname.includes('news.html')) {
+            function showSupportPage(page) {
+                sessionStorage.setItem('navigateToSupport', page);
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

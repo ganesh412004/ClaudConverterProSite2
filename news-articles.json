@@ -1,0 +1,35 @@
+[
+  {
+    "id": "na001",
+    "title": "ClaudConverter Pro Reaches 1 Million Users!",
+    "slug": "one-million-users-milestone",
+    "meta_title": "ClaudConverter Pro Hits 1 Million User Milestone! | ClaudConverter Pro News",
+    "meta_description": "We're excited to announce that ClaudConverter Pro has officially reached over 1 million registered users. Thank you to our amazing community!",
+    "content": "<p>We are thrilled to announce a major milestone: ClaudConverter Pro has surpassed <strong>1 million registered users</strong>! This incredible achievement is a testament to the trust and support of our global community.</p><p>Since our launch, we've been dedicated to providing a seamless and powerful file conversion experience. Reaching this number motivates us to continue innovating and improving our services.</p><p>Thank you for being part of our journey!</p>",
+    "publish_date": "2024-07-20T11:00:00Z",
+    "category": "Announcements",
+    "status": "published"
+  },
+  {
+    "id": "na002",
+    "title": "New Feature: Advanced OCR Capabilities Added",
+    "slug": "new-ocr-feature",
+    "meta_title": "Advanced OCR Feature Launched | ClaudConverter Pro News",
+    "meta_description": "ClaudConverter Pro now includes advanced OCR capabilities, allowing you to convert scanned documents and images into editable text formats.",
+    "content": "<p>Exciting news for our users! We've just rolled out an <strong>Advanced OCR (Optical Character Recognition)</strong> feature.</p><p>What this means for you:</p><ul><li>Convert scanned PDFs to editable Word documents.</li><li>Extract text from images with high accuracy.</li><li>Support for multiple languages.</li></ul><p>This feature is now available to all Premium users. Free users can try it out with a limited number of conversions. We believe this will significantly enhance productivity for students, researchers, and professionals alike.</p>",
+    "publish_date": "2024-07-26T09:30:00Z",
+    "category": "Updates",
+    "status": "published"
+  },
+  {
+    "id": "na003",
+    "title": "The Growing Importance of Data Privacy in Online Tools",
+    "slug": "data-privacy-online-tools",
+    "meta_title": "Data Privacy in Online Tools | ClaudConverter Pro Insights",
+    "meta_description": "An overview of why data privacy is crucial for online conversion tools and how ClaudConverter Pro prioritizes user security.",
+    "content": "<p>In an increasingly digital world, data privacy has become a paramount concern. When using online tools, especially for file conversion, it's vital to understand how your data is handled.</p><h3>Key Considerations:</h3><ul><li><strong>Encryption:</strong> Are files encrypted during transit and processing?</li><li><strong>Data Retention:</strong> How long are your files stored on servers?</li><li><strong>Third-party Sharing:</strong> Is your data shared with any third parties?</li></ul><p>At ClaudConverter Pro, we implement robust security measures, including end-to-end encryption for sensitive conversions and automatic file deletion from our servers after a short period. Read our full <a href='index.html' onclick='sessionStorage.setItem(\"navigateToSupport\", \"privacy\");'>Privacy Policy</a>.</p>",
+    "publish_date": "2024-08-01T15:00:00Z",
+    "category": "Industry",
+    "status": "published"
+  }
+]
